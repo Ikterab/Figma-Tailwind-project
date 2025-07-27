@@ -30,7 +30,7 @@ export function Carbrand() {
 
     return (
       <>
-        <div className='Companies' class='text-center font-[Poppins]'>
+        <div className='Companies' class=' w-full text-center font-[Poppins]'>
           <div className='text-center'>
             <h3 class='font-[Poppins] text-[14px]  font-medium px-5 py-3 border-none  bg-[#ECF5FF] text-[#1572D3] w-[150px] m-auto whitespace-nowrap'>
               HOW IT WORK
@@ -39,7 +39,7 @@ export function Carbrand() {
               Rent with following 3 working steps
             </h1>
           </div>
-          <div className='flex justify-center gap-45 ml-18 mt-26 '>
+          <div className='flex justify-center 2xl:gap-45 xl:gap-20 ml-18 mt-26 '>
             {steps.map((steps, index) => (
               <div
                 key={index}
@@ -49,11 +49,16 @@ export function Carbrand() {
                   <img src={steps.img} class='h-[48px] w-[48px] ' />
                 </div>
                 <h2 class='text-[20px] font-medium'>{steps.text}</h2>
-                <p class='w-[249px] text-[#6D6D6D] text-[14px] mt-4'>{steps.description}</p>
+                <p class='2xl:w-[249px] 2xl:text-[#6D6D6D] 2xl:text-[14px] 2xl:mt-4 2xl:px-auto 2xl:py-auto xl:w-[249px] xl:text-[#6D6D6D] xl:text-[14px] xl:mt-4 xl:px-auto xl:py-auto lg:w-[249px] lg:text-[#6D6D6D] lg:text-[14px] lg:mt-4 lg:px-5 lg:py-1'>
+                  {steps.description}
+                </p>
               </div>
             ))}
           </div>
-          <div className='images' class='flex gap-[120px] mt-40'>
+          <div
+            className='images'
+            class='flex  2xl:gap-[120px] xl:gap-[60px] lg:gap-[50px] 2xl:w-[200px] xl:w-[160px] lg:w-[120px] mt-40 xl:ml-9 lg:ml-10'
+          >
             <img src={Honda} />
             <img src={Jaguar} />
             <img src={Nissan} />
@@ -65,5 +70,6 @@ export function Carbrand() {
       </>
     )
     
-}
+} 
+
 

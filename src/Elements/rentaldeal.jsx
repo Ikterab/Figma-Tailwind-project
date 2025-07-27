@@ -76,16 +76,16 @@ const rental = [
 export function Rentals() {
     return (
       <>
-        <div className='flex flex-col items-center font-[Poppins]'>
+        <div className='flex flex-col items-center font-[Poppins] mt-10'>
           <h3 class='text[14px] text-[#1572D3] bg-[#d8e7f9] w-[226px] h-[42px] py-2 rounded-[8px]'>
             POPULAR RENTAL DEALS
           </h3>
-          <h1 class='text-[38px] font-medium'>
+          <h1 class='text-[38px] font-medium '>
             Most popular cars rental deals
           </h1>
           <div
             className='card'
-            class=' flex justify-center items-center gap-15 mt-40 text-start'
+            class=' flex flex-wrap justify-center items-center 2xl:gap-15 xl:gap-15 lg:gap-33 2xl:mt-40 xl:mt-20 lg:mt-10 text-start'
           >
             {rental.map((cars, index) => (
               <div
@@ -148,7 +148,7 @@ export function Rentals() {
               </div>
             ))}
           </div>
-          <button class='flex gap-1 mt-20 bg-white w-[210px] h-[48px] rounded-[8px] text-[14px] font-medium text-[#959595] border-[#E0E0E0] hover:bg-[#E0E0E0] border-1  py-3 px-8 cursor-pointer '>
+          <button class='flex gap-1 2xl:mt-20 xl:mt-10 lg:mt-10 bg-white w-[210px] h-[48px] rounded-[8px] text-[14px] font-medium text-[#959595] border-[#E0E0E0] hover:bg-[#E0E0E0] border-1  py-3 px-8 cursor-pointer '>
             Show all vehicles <img class='' src={blackarrow} />
           </button>
         </div>

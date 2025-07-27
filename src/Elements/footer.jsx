@@ -12,7 +12,7 @@ export function Footer() {
     return (
       <>
         <div className='flex flex-col w-full  bg-[#051C34] text-white gap-10 items-start '>
-          <div className='flex justify-self-start  gap-50 mt-15 ml-60  w-[1440px] h-[250px] border-w- border-1 border-x-0 border-t-0  border-[#575757]'>
+          <div className='flex justify-self-start  2xl:gap-50 xl:gap-10 lg:gap-10 mt-15  2xl:ml-60 lg:ml-20 xl:ml-30 2xl:w-[1440px]  h-[250px] border-1 border-x-0 border-t-0  border-[#575757]'>
             <div className='flex flex-col gap-2'>
               <img src={logo} class='h-[32px] w-[116px]' />
               <div className='flex gap-1'>
@@ -30,7 +30,7 @@ export function Footer() {
                 <p className={pdesign}>rentcars@gmail.com</p>
               </div>
             </div>
-            <div className='flex gap-40'>
+            <div className='flex 2xl:gap-40 xl:gap-30 lg:gap-10'>
               <div className='footerparts'>
                 <h3 className='footerpartHeader'>Our products</h3>
                 <p className={pdesign}>Career</p>
@@ -68,7 +68,7 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div class='ml-60 mb-10'>
+          <div class='2xl:ml-60 xl:ml-30 lg:ml-20 mb-10'>
             <p className={pdesign}>
               Copyright 2023 ・ Rentcars, All Rights Reserved
             </p>
