@@ -41,8 +41,8 @@ const reviews = [
 export function Testimonial() {
     return (
       <>
-        <div className='mt-34  h-[864px] w-[100%] bg-[#edf0f5] '>
-          <div className='flex gap-30 items-center  justify-center '>
+        <div className='mt-34  h-[864px] w-full bg-[#edf0f5] font-Poppins '>
+          <div className='flex gap-30 items-center  w-full justify-center '>
             <img src={leftcomma} className='relative top-30' />
             <div className='px-3'>
               <h3 className='m-auto h-[42px] w-[161px] py-2.5 text-[14px] bg-[#c0daf5] font-medium tracking-[1px]  text-[#1572D3]'>

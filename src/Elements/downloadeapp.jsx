@@ -7,7 +7,7 @@ import frame from '../assets/UP.svg'
 export function DownloadeApp() {
     return (
       <>
-        <div className='flex justify-between w-full'>
+        <div className='flex justify-between w-full  whitespace-none font-[Poppins]'>
           <div className='relative'>
             <img src={frame} />
           </div>
@@ -16,15 +16,15 @@ export function DownloadeApp() {
               DOWNLOAD
             </h3>
             <div className='leading-15'>
-              <h1 className='2xl:text-[58px] 2xl:font-[610] 2xl:text-[#282828]  2xl:px-5  xl:text-[58px] xl:font-[610] xl:text-[#282828]  xl:px-5 lg:text-[58px] lg:font-[600] lg:text-[#282828]  lg:px-5'>
+              <h1 className='2xl:text-[48px] 2xl:font-[610] 2xl:text-[#282828]  2xl:px-5  xl:text-[48px] xl:font-[610] xl:text-[#282828]  xl:px-5 lg:text-[48px] lg:font-[600] lg:text-[#282828]  lg:px-5'>
                 Download Rentcars{' '}
               </h1>
-              <h1 className='2xl:mr-40 2xl:text-[58px] 2xl:font-[610] 2xl:text-[#282828]  xl:mr-40 xl:text-[58px] xl:font-[610] xl:text-[#282828] lg:mr-37 lg:text-[58px] lg:font-[610] lg:text-[#282828]'>
+              <h1 className='2xl:mr-40 2xl:text-[48px] 2xl:font-[610] 2xl:text-[#282828]  xl:mr-40 xl:text-[48px] xl:font-[610] xl:text-[#282828] lg:mr-37 lg:text-[48px] lg:font-[610] lg:text-[#282828]'>
                 App for <span className='text-[#1572D3]'>FREE</span>
               </h1>
             </div>
 
-            <p className='text-[17px] font-normal mr-45 mt-9 pt-4'>
+            <p className='text-[17px] font-normal mr-25 mt-9 pt-4'>
               For faster,easir booking and exclusive deals.
             </p>
             <div className='flex gap-5 ml-3.5 2xl:mt-10 xl:mt-10 lg:mt-5'>

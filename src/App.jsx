@@ -21,10 +21,10 @@ function App() {
         <Advertisement />
         <Carbrand />
         <Offers />
-        <Rentals />
+        {/* <Rentals />
         <Testimonial />
         <DownloadeApp/>
-      <Footer/>
+      <Footer/> */}
       </div> 
     </>
   )

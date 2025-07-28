@@ -76,7 +76,7 @@ const rental = [
 export function Rentals() {
     return (
       <>
-        <div className='flex flex-col items-center font-[Poppins] mt-10'>
+        <div className='flex flex-col items-center font-[Poppins] w-full mt-10'>
           <h3 class='text[14px] text-[#1572D3] bg-[#d8e7f9] w-[226px] h-[42px] py-2 rounded-[8px]'>
             POPULAR RENTAL DEALS
           </h3>

@@ -8,11 +8,11 @@ import instra from '../assets/instagram.svg'
 import youtubr from '../assets/youtube.svg'
 
 export function Footer() {
-    const pdesign = 'mt-2 font-normal text-[14px] text-[#D6D6D6] '
+    const pdesign = 'mt-2 font-normal text-warp text-[14px] text-[#D6D6D6] '
     return (
       <>
-        <div className='flex flex-col w-full  bg-[#051C34] text-white gap-10 items-start '>
-          <div className='flex justify-self-start  2xl:gap-50 xl:gap-10 lg:gap-10 mt-15  2xl:ml-60 lg:ml-20 xl:ml-30 2xl:w-[1440px]  h-[250px] border-1 border-x-0 border-t-0  border-[#575757]'>
+        <div className='flex flex-col w-full  bg-[#051C34] text-white gap-10 items-start font-[Poppins] '>
+          <div className='flex justify-self-start  2xl:gap-50 xl:gap-10 lg:gap-10 mt-15  2xl:ml-60 lg:ml-20 xl:ml-30 2xl:w-[1460px]  h-[250px] border-1 border-x-0 border-t-0  border-[#575757]'>
             <div className='flex flex-col gap-2'>
               <img src={logo} class='h-[32px] w-[116px]' />
               <div className='flex gap-1'>
@@ -77,3 +77,6 @@ export function Footer() {
       </>
     )
 }
+
+
+          // <div className='flex justify-between 2xl:px-5  mt-15  xl:px-1 lg:px-10 2xl:w-[100%]  h-[250px] border-w border-1 border-x-0 border-t-0  border-[#575757]'>
