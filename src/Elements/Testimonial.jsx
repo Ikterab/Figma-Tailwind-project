@@ -41,20 +41,26 @@ const reviews = [
 export function Testimonial() {
     return (
       <>
-        <div className='mt-34  h-[864px] w-full bg-[#edf0f5] font-Poppins '>
-          <div className='flex gap-30 items-center  w-full justify-center '>
-            <img src={leftcomma} className='relative top-30' />
+        <div className='mt-34  2xl:w-[101%] xl:w-full  bg-[#edf0f5] font-Poppins '>
+          <div className='flex 2xl:gap-20 xl:gap-30  lg:gap-10 md:gap-0 sm:gap-0 items-center  w-full justify-center '>
+            <img
+              src={leftcomma}
+              className='relative top-30 2xl:w-auto xl:w-[250px] lg:w-[250px] md:w-[150px] sm:w-[150px]'
+            />
             <div className='px-3'>
               <h3 className='m-auto h-[42px] w-[161px] py-2.5 text-[14px] bg-[#c0daf5] font-medium tracking-[1px]  text-[#1572D3]'>
                 TESTIMONIALS
               </h3>
-              <h1 className='2xl:text-[38px] xl:text-[38px] lg:text-[30px] font-medium'>
+              <h1 className='2xl:text-[38px] xl:text-[38px] lg:text-[30px] md:text-[25px] sm:text-[25px] whitespace-nowrap font-medium'>
                 What people say about us?
               </h1>
             </div>
-            <img src={rightcomma} className='relative bottom-10' />
+            <img
+              src={rightcomma}
+              className='relative 2xl:bottom-10 xl:bottom-10 lg:bottom-10 md:bottom-4  sm:bottom-8  2xl:w-auto xl:w-auto lg:w-[250px] md:w-[150px] sm:w-[120px]'
+            />
           </div>
-          <div className='2xl:h-[660px] xl:h-[500px] py-10 '>
+          <div className='2xl:h-[660px] xl:h-[660px] lg:h-[660px] md:h-[660] sm:h-[660px]  '>
             <Swiper
               modules={[Autoplay]}
               spaceBetween={-160}
@@ -79,14 +85,24 @@ export function Testimonial() {
                 },
                 1024: {
                   slidesPerView: 1,
-                  spaceBetween: 10,
+                  spaceBetween: 12,
+                },
+                768: {
+                  slidesPerView: 1,
+                  spaceBetween: 5,
+                },
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 5,
                 },
               }}
             >
               {reviews.map((rec, index) => (
                 <SwiperSlide key={index}>
-                  <div class='flex  2xl:gap-6 xl:gap-6 lg:gap-3 bg-white shadow-[0_12px_39px_rgb(15,30,104,0.2)] h-[420px] 2xl:w-[794px] xl:w-[700px] lg:w-[650px] rounded-[24px] relative mt-12  z-34'>
-                    <img class='  h-[438px] w-[397px]' src={rec.img} />
+                  {/* <div class='flex  2xl:gap-6 xl:gap-6 lg:gap-3 md:gap-3 bg-white shadow-[0_12px_39px_rgb(15,30,104,0.2)] h-[420px] 2xl:w-[794px] xl:w-[700px] lg:w-[650px] md:w-[750px] rounded-[24px] relative mt-12  z-34'>
+                   */}
+                  <div class='flex  2xl:gap-6 xl:gap-6 lg:gap-3  max-w-[800px] md:gap-3 sm:gap-3 bg-white shadow-[0_12px_39px_rgb(15,30,104,0.2)] h-[420px] 2xl:w-[100%] xl:w-[700px] lg:w-[100%] md:w-[100%] sm:w-[100%] rounded-[24px]    z-34'>
+                    <img class='  h-[100%] w-[100%]' src={rec.img} />
                     <div className='flex flex-col text-start'>
                       <h2 className='text-[64px] px-1 font-medium'>
                         {rec?.rate?.[0]}
@@ -96,7 +112,7 @@ export function Testimonial() {
                       </h2>
                       <img src={rec.img1} className='h-[20px] w-[108px] px-2' />
                       <p className='text-[18px] pl-2 pr-12'>{rec.response}</p>
-                      <h3 className='text-[24px] mt-13 font-medium'>
+                      <h3 className='text-[24px] mt-3 font-medium'>
                         {rec.name}
                       </h3>
                       <h4 className='text-[14px]'>{rec.location}</h4>

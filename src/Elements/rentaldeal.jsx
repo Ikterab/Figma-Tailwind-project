@@ -85,7 +85,7 @@ export function Rentals() {
           </h1>
           <div
             className='card'
-            class=' flex flex-wrap justify-center items-center 2xl:gap-15 xl:gap-15 lg:gap-33 2xl:mt-40 xl:mt-20 lg:mt-10 text-start'
+            class=' flex flex-wrap justify-center items-center 2xl:gap-15 xl:gap-15 lg:gap-33 md:gap-10 sm:gap-10 2xl:mt-40 xl:mt-20 lg:mt-10 md:mt-10 sm:mt-10 text-start'
           >
             {rental.map((cars, index) => (
               <div
@@ -148,7 +148,7 @@ export function Rentals() {
               </div>
             ))}
           </div>
-          <button class='flex gap-1 2xl:mt-20 xl:mt-10 lg:mt-10 bg-white w-[210px] h-[48px] rounded-[8px] text-[14px] font-medium text-[#959595] border-[#E0E0E0] hover:bg-[#E0E0E0] border-1  py-3 px-8 cursor-pointer '>
+          <button class='flex gap-1 2xl:mt-20 xl:mt-10 lg:mt-10 md:mt-10 sm:mt-10 bg-white w-[210px] h-[48px] rounded-[8px] text-[14px] font-medium text-[#959595] border-[#E0E0E0] hover:bg-[#E0E0E0] border-1  py-3 px-8 cursor-pointer '>
             Show all vehicles <img class='' src={blackarrow} />
           </button>
         </div>

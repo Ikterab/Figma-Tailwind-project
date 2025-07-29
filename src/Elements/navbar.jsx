@@ -11,10 +11,10 @@ export function Navbar() {
     <>
       <div
         className='Navbar'
-        class='flex justify-between w-[100%] font-Poppins text-[#484848]  font-[500] text-[16px] z-10  bg-transparent  2xl:px-20  xl:px-20    lg:px-3 md: whitespace-nowrap'
+        class='flex justify-between w-[100%]  font-Poppins text-[#484848]  font-[500] text-[16px] z-10  bg-transparent  2xl:px-20  xl:px-20    lg:px-3 md: whitespace-nowrap'
       >
         <ul
-          className={`  md:flex flex-col gap-7 items-start md:w-[300px] md:fixed md:z-100 md:h-[100%] md:bg-[#c6dcf1] md:px-7 md:py-9 transition-all duration-300 ${
+          className={`  flex flex-col gap-7 items-start w-[300px] fixed z-100 h-[100%] bg-[#c6dcf1] px-7 py-9 transition-all duration-300 ${
             open === true ? 'left-0' : '-left-[300px]'
           }`}
         >
@@ -39,12 +39,12 @@ export function Navbar() {
             }}
           ></div>
         )}
-        <div className='flex justify-between w-[100%] 2xl:py-5 xl:py-3 lg:py-3 md:py-5 md:px-5'>
+        <div className='flex justify-between w-[100%] 2xl:py-5 xl:py-3 lg:py-3 md:py-5 md:px-5 sm:px-5 sm:py-5'>
           {' '}
           <div className='logocontainer' class='items-start flex gap-2  '>
             <img
               src={hamburger}
-              className='2xl:block xl:hidden lg:hidden md:w-[20px] cursor-pointer'
+              className='2xl:block xl:block lg:hidden md:w-[20px] sm:w-[20px] cursor-pointer'
               onClick={() => setOpen(true)}
             />
             <img
@@ -53,7 +53,7 @@ export function Navbar() {
             />
           </div>
           <div class='flex 2xl:gap-10 xl:gap-10 lg:gap-5'>
-            <ul class='2xl:flex xl:flex lg:flex  2xl:gap-20 xl:gap-20 lg:gap-10 md:hidden list-none '>
+            <ul class='2xl:flex xl:flex lg:flex  2xl:gap-20 xl:gap-20 lg:gap-10 md:hidden sm:hidden list-none '>
               <li>Become a renter</li>
               <li>Rental deals</li>
               <li>How it work</li>

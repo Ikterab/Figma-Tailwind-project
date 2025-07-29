@@ -34,33 +34,35 @@ export function Offers() {
     <>
       <div
         className='main'
-        class='flex justify-center 2xl:gap-40 xl:gap-0 lg:gap-0 md:gap-0 w-full items-center font-[Poppins]'
+        class=' 2xl:flex xl:flex lg:flex md:flex sm:flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row sm:flex-col 2xl:justify-center xl:justify-center lg:justify-center md:justify-center sm:justify-center  2xl:gap-40 xl:gap-0 lg:gap-0 md:gap-0 sm:gap-4 w-full items-center font-[Poppins]'
       >
         <img
           src={audigari}
-          class='2xl:w-full xl:w-[800px] lg:w-[600px] md:w-[500px]'
+          class='2xl:w-full xl:w-[800px] lg:w-[600px] md:w-[500px] '
         />
         <div className='flex flex-col gap-7'>
-          <h3 class='text-[15px] text-[#1572D3] bg-[#ECF5FF] h-[42px] w-[182px] pt- px-6.5 py-3 text-start  font-medium '>
+          <h3 class='text-[15px] text-[#1572D3] bg-[#ECF5FF] h-[42px] w-[182px]  px-6.5 py-3 text-start  font-medium  2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 sm:ml-7'>
             WHY CHOOSE US
           </h3>
-          <h1 class='2xl:text-[38px] xl:text-[30px] lg:text-[28px] md:text-[24px]  font-medium text-start '>
+          <h1 class='2xl:text-[38px] xl:text-[30px] lg:text-[28px] md:text-[24px] sm:text-[28px] font-medium text-start 2xl:px-0 xl:px-0 lg:px-0 md:px-0 sm:px-9'>
             We offer the best experience with our rental deals
           </h1>
-          {offers.map((offers, index) => (
-            <div key={index} className='flex gap-5'>
-              <div class='2xl:h-[75px] 2xl:w-[75px] xl:h-[70px] xl:w-[75px] lg:w-[65px] lg:h-[60px] md:w-[65px] md:h-[50px] bg-[#ECF5FF] 2xl:py-5 xl:py-5 2xl:px-5 xl:px-4 lg:px-2 lg:py-2 md:px-1 md:py-2 rounded-[16px] '>
-                <img class='w-[35px] h-[35px]' src={offers.img} />
+          <div className='2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 sm:ml-3 flex flex-col gap-7 2xl:px-0 xl:px-0 lg:px-0 md:px-0 sm:px-7'>
+            {offers.map((offers, index) => (
+              <div key={index} className='flex items-center gap-5'>
+                <div class='2xl:h-[75px] 2xl:w-[75px] xl:h-[70px] xl:w-[75px] lg:w-[65px] lg:h-[60px] md:w-[65px] md:h-[50px] sm:w-[50px] bg-[#ECF5FF] 2xl:py-5 xl:py-5 2xl:px-5 xl:px-4 lg:px-2 lg:py-2 md:px-1 sm:px-3 md:py-2 sm:py-3 rounded-[16px] '>
+                  <img class='w-[35px] h-[35px]' src={offers.img} />
+                </div>
+                <div class='text-start'>
+                  <h3 class='text-[20px] font-medium'>{offers.type}</h3>
+                  <p class='text-[17px] text-[#6D6D6D] font-[400]'>
+                    {' '}
+                    {offers.description}
+                  </p>
+                </div>
               </div>
-              <div class='text-start'>
-                <h3 class='text-[20px] font-medium'>{offers.type}</h3>
-                <p class='text-[17px] text-[#6D6D6D] font-[400]'>
-                  {' '}
-                  {offers.description}
-                </p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </>
