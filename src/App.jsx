@@ -19,12 +19,12 @@ function App() {
       <div>
         <Navbar/>
         <Advertisement />
-        <Carbrand />
+        {/* <Carbrand />
         <Offers />
         <Rentals />
         <Testimonial />
         <DownloadeApp/>
-      <Footer/>
+      <Footer/> */}
       </div> 
     </>
   )

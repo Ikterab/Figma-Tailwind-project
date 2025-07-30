@@ -34,7 +34,7 @@ export function Offers() {
     <>
       <div
         className='main'
-        class=' 2xl:flex xl:flex lg:flex md:flex sm:flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row sm:flex-col 2xl:justify-center xl:justify-center lg:justify-center md:justify-center sm:justify-center  2xl:gap-40 xl:gap-0 lg:gap-0 md:gap-0 sm:gap-4 w-full items-center font-[Poppins]'
+        class='  2xl:flex xl:flex lg:flex md:flex sm:flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row sm:flex-col 2xl:justify-center xl:justify-center lg:justify-center   md:justify-center sm:justify-center  2xl:gap-40 xl:gap-0 lg:gap-0 md:gap-0 sm:gap-4 w-full items-center font-[Poppins]'
       >
         <img
           src={audigari}

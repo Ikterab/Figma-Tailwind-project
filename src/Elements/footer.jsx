@@ -12,7 +12,7 @@ export function Footer() {
     return (
       <>
         <div className='flex flex-col w-full  bg-[#051C34] text-white gap-10 items-start font-[Poppins] '>
-          <div className='flex  justify-self-start  2xl:gap-50 xl:gap-10 lg:gap-10 md:gap-25 mt-15  2xl:ml-60 lg:ml-20 xl:ml-30 md:ml-30 2xl:w-[1460px]  2xl:h-[250px]  xl:h-[250px] lg:h-[250px] md:h-[400px] border-1 border-x-0 border-t-0  border-[#575757]'>
+          <div className='flex  justify-self-start  2xl:gap-50 xl:gap-10 lg:gap-10 md:gap-25 sm:gap-20 mt-15  2xl:ml-60 lg:ml-20 xl:ml-30 md:ml-30  sm:ml-10 2xl:w-[1460px]  2xl:h-[250px]  xl:h-[250px] lg:h-[250px] md:h-[400px] sm:h-[400px] border-1 border-x-0 border-t-0  border-[#575757]'>
             <div className='flex flex-col gap-2'>
               <img src={logo} class='h-[32px] w-[116px]' />
               <div className='flex gap-1'>
@@ -30,7 +30,7 @@ export function Footer() {
                 <p className={pdesign}>rentcars@gmail.com</p>
               </div>
             </div>
-            <div className='flex justify-items-start flex-wrap 2xl:gap-40 xl:gap-20 lg:gap-10 md:gap-10'>
+            <div className='flex justify-items-start flex-wrap 2xl:gap-40 xl:gap-20 lg:gap-10 md:gap-10 sm:gap-10'>
               <div className='footerparts'>
                 <h3 className='footerpartHeader'>Our products</h3>
                 <p className={pdesign}>Career</p>
@@ -68,7 +68,7 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div class='2xl:ml-60 xl:ml-30 lg:ml-20 md:ml-27 mb-10'>
+          <div class='2xl:ml-60 xl:ml-30 lg:ml-20 md:ml-27 sm:ml-10  mb-10'>
             <p className={pdesign}>
               Copyright 2023 ・ Rentcars, All Rights Reserved
             </p>

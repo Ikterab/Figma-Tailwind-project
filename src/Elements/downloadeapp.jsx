@@ -15,16 +15,16 @@ export function DownloadeApp() {
             <h3 className='text-[15px] font-medium h-[42px] w-[146px] ml-7 text-[#1572D3]  bg-[#cde2f9] rounded-[8px] py-2.5'>
               DOWNLOAD
             </h3>
-            <div className='2xl:leading-15 xl:leading-15 lg:leading-15 md:leading-7 sm:leading-6'>
-              <h1 className='2xl:text-[48px] 2xl:font-[600] 2xl:text-[#282828]  2xl:px-5  xl:text-[48px] xl:font-[600] xl:text-[#282828]  xl:px-5 lg:text-[48px] lg:font-[600] lg:text-[#282828]  lg:px-5 md:text-[30px] md:font-[600] md:text-[#282828] md:px-0 sm:text-[30px] sm:font-[600] sm:text-[#282828] sm:px-2  '>
+            <div className='2xl:leading-15 xl:leading-15 lg:leading-15 md:leading-7 sm:leading-14 text-start '>
+              <h1 className='2xl:text-[48px] 2xl:font-[600] 2xl:text-[#282828]  2xl:px-5  xl:text-[48px] xl:font-[600] xl:text-[#282828]  xl:px-5 lg:text-[48px] lg:font-[600] lg:text-[#282828]  lg:px-5 md:text-[30px] md:font-[600] md:text-[#282828] md:px-0 sm:text-[48px] sm:font-[600] sm:text-[#282828] sm:px-4  '>
                 Download Rentcars{' '}
               </h1>
-              <h1 className='2xl:mr-40 2xl:text-[48px] 2xl:font-[600] 2xl:text-[#282828]  xl:mr-40 xl:text-[48px] xl:font-[600] xl:text-[#282828] lg:mr-37 lg:text-[48px] lg:font-[600] lg:text-[#282828] md:mr-30 md:text-[30px] md:font-[600] md:text-[#282828] md:px-0 sm:mr-20 sm:text-[30px] sm:font-[600] sm:text-[#282828] sm:px-0'>
+              <h1 className='2xl:px-3 2xl:text-[48px] 2xl:font-[600] 2xl:text-[#282828]  xl:px-3 xl:text-[48px] xl:font-[600] xl:text-[#282828] lg:px-3 lg:text-[48px] lg:font-[600] lg:text-[#282828] md:px-3 md:text-[30px] md:font-[600] md:text-[#282828]  sm:text-[48px] sm:font-[600] sm:text-[#282828] sm:px-3 '>
                 App for <span className='text-[#1572D3]'>FREE</span>
               </h1>
             </div>
 
-            <p className='2xl:text-[17px] xl:text-[17px] lg:text-[17px] md:text-[12px] sm:text-[17px]  font-normal xl:2xl:mr-25 xl:mr-25 lg:mr-25 md:mr-10 2xl:mt-9 xl:mt-9 lg:mt-9 md:mt-2 pt-4'>
+            <p className='2xl:text-[17px] xl:text-[17px] lg:text-[17px] md:text-[12px] sm:text-[17px]  font-normal 2xl:px-3 xl:px-3 lg:px-3 md:px-3 sm:px-3 2xl:mt-9 xl:mt-9 lg:mt-9 md:mt-2 pt-4 text-start'>
               For faster,easir booking and exclusive deals.
             </p>
             <div className='flex gap-5 ml-3.5 2xl:mt-10 xl:mt-10 lg:mt-5 md:mt-5 sm:mt-5'>
