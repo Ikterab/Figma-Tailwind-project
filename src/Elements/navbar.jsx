@@ -61,7 +61,7 @@ export function Navbar() {
             </ul>
             <ul class='flex gap-[10px] 2xl:gap-[55px] xl:gap-[55px] lg:gap-[55px] md:gap-[55px] sm:gap-[55px]'>
               <li>Sign in</li>
-              <li class='h-[43px] w-[125px] relative bottom-2 px-[32px] py-[9px] bg-[#1572D3] rounded-[8px]'>
+              <li class='sm:h-[43px] sm:w-[125px] relative bottom-2 sm:px-[32px] sm:py-[9px] px-[20px] py-[6px] bg-[#1572D3] rounded-[8px]'>
                 Sign up
               </li>
             </ul>

@@ -41,26 +41,26 @@ const reviews = [
 export function Testimonial() {
     return (
       <>
-        <div className='mt-34  2xl:w-[101%] xl:w-full  bg-[#edf0f5] font-Poppins '>
-          <div className='flex 2xl:gap-20 xl:gap-30  lg:gap-10 md:gap-0 sm:gap-0 items-center  w-full justify-center '>
+        <div className='mt-3 max-w-full w-[100%] 2xl:w-[101%] xl:w-full  bg-[#edf0f5] font-Poppins '>
+          <div className='flex  2xl:gap-20 xl:gap-30  lg:gap-10 md:gap-0 sm:gap-0 items-center  w-full justify-center '>
             <img
               src={leftcomma}
-              className='relative top-30 2xl:w-auto xl:w-[250px] lg:w-[250px] md:w-[150px] sm:w-[150px]'
+              className='relative max-w-[50]  w-[50px] top-30 2xl:w-auto xl:w-[250px] lg:w-[250px] md:w-[150px] sm:w-[120px] sm:max-w-[500px]'
             />
             <div className='px-3'>
               <h3 className='m-auto h-[42px] w-[161px] py-2.5 text-[14px] bg-[#c0daf5] font-medium tracking-[1px]  text-[#1572D3]'>
                 TESTIMONIALS
               </h3>
-              <h1 className='2xl:text-[38px] xl:text-[38px] lg:text-[30px] md:text-[25px] sm:text-[25px] whitespace-nowrap font-medium'>
+              <h1 className='2xl:text-[38px] xl:text-[38px] lg:text-[30px] md:text-[25px] sm:text-[25px] text-[20px] whitespace-nowrap font-medium'>
                 What people say about us?
               </h1>
             </div>
             <img
               src={rightcomma}
-              className='relative 2xl:bottom-10 xl:bottom-10 lg:bottom-10 md:bottom-4  sm:bottom-8  2xl:w-auto xl:w-auto lg:w-[250px] md:w-[150px] sm:w-[120px]'
+              className='relative max-w-[60] w-[60px] 2xl:bottom-10 xl:bottom-10 lg:bottom-10 md:bottom-4  sm:bottom-4 2xl:w-auto xl:w-auto lg:w-[250px] md:w-[150px] sm:w-[120px] sm:max-w-[500px]'
             />
           </div>
-          <div className='2xl:h-[660px] xl:h-[660px] lg:h-[660px] md:h-[660] sm:h-[660px]  '>
+          <div className='2xl:h-[660px] xl:h-[660px] lg:h-[660px] md:h-[660] sm:h-[660px] h-[100%] w-[100%] '>
             <Swiper
               modules={[Autoplay]}
               spaceBetween={-160}
@@ -95,14 +95,18 @@ export function Testimonial() {
                   slidesPerView: 1,
                   spaceBetween: 5,
                 },
+                344: {
+                  slidesPerView: 1,
+                  spaceBetween:100,
+              }
               }}
             >
               {reviews.map((rec, index) => (
                 <SwiperSlide key={index}>
                   {/* <div class='flex  2xl:gap-6 xl:gap-6 lg:gap-3 md:gap-3 bg-white shadow-[0_12px_39px_rgb(15,30,104,0.2)] h-[420px] 2xl:w-[794px] xl:w-[700px] lg:w-[650px] md:w-[750px] rounded-[24px] relative mt-12  z-34'>
                    */}
-                  <div class='flex  2xl:gap-6 xl:gap-6 lg:gap-3  max-w-[800px] md:gap-3 sm:gap-3 bg-white shadow-[0_12px_39px_rgb(15,30,104,0.2)] h-[420px] 2xl:w-[100%] xl:w-[700px] lg:w-[100%] md:w-[100%] sm:w-[100%] rounded-[24px]    z-34'>
-                    <img class='  h-[100%] w-[100%]' src={rec.img} />
+                  <div class='flex flex-col h-[100%]  w-[100%] gap-1  2xl:gap-6 xl:gap-6 lg:gap-3  max-w-[800px] md:gap-3 sm:gap-3 bg-white shadow-[0_12px_39px_rgb(15,30,104,0.2)]  2xl:w-[100%] xl:w-[700px] lg:w-[100%] md:w-[100%] sm:w-[100%] sm:flex-nowrap sm:flex-row rounded-[24px]    z-34'>
+                    <img class='h-[80%] w-[100%]  sm:h-[100%]  sm:w-[100%]' src={rec.img} />
                     <div className='flex flex-col text-start'>
                       <h2 className='text-[64px] px-1 font-medium'>
                         {rec?.rate?.[0]}
@@ -112,10 +116,10 @@ export function Testimonial() {
                       </h2>
                       <img src={rec.img1} className='h-[20px] w-[108px] px-2' />
                       <p className='text-[18px] pl-2 pr-12'>{rec.response}</p>
-                      <h3 className='text-[24px] mt-3 font-medium'>
+                      <h3 className='text-[24px] sm:mt-3 sm:px-0 mt-1 px-3 font-medium'>
                         {rec.name}
                       </h3>
-                      <h4 className='text-[14px]'>{rec.location}</h4>
+                      <h4 className='text-[14px] sm:px-0 sm:pb-0 pb-6 px-3'>{rec.location}</h4>
                     </div>
                   </div>
                 </SwiperSlide>

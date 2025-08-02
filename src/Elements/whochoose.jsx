@@ -41,16 +41,16 @@ export function Offers() {
           class='2xl:w-full xl:w-[800px] lg:w-[600px] md:w-[500px] '
         />
         <div className='flex flex-col gap-7'>
-          <h3 class='text-[15px] text-[#1572D3] bg-[#ECF5FF] h-[42px] w-[182px]  px-6.5 py-3 text-start  font-medium  2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 sm:ml-7'>
+          <h3 class='text-[15px] text-[#1572D3] bg-[#ECF5FF] h-[42px] w-[182px]  px-6.5 py-3 text-start  font-medium  2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 sm:ml-7 ml-4 '>
             WHY CHOOSE US
           </h3>
-          <h1 class='2xl:text-[38px] xl:text-[30px] lg:text-[28px] md:text-[24px] sm:text-[28px] font-medium text-start 2xl:px-0 xl:px-0 lg:px-0 md:px-0 sm:px-9'>
+          <h1 class='2xl:text-[38px] xl:text-[30px] lg:text-[28px] md:text-[24px] sm:text-[28px] text-[25px] font-medium text-start 2xl:px-0 xl:px-0 lg:px-0 md:px-0 sm:px-9 px-4'>
             We offer the best experience with our rental deals
           </h1>
-          <div className='2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 sm:ml-3 flex flex-col gap-7 2xl:px-0 xl:px-0 lg:px-0 md:px-0 sm:px-7'>
+          <div className='2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 sm:ml-3 flex flex-col gap-7 2xl:px-0 xl:px-0 lg:px-0 md:px-0 sm:px-7 px-5'>
             {offers.map((offers, index) => (
               <div key={index} className='flex items-center gap-5'>
-                <div class='2xl:h-[75px] 2xl:w-[75px] xl:h-[70px] xl:w-[75px] lg:w-[65px] lg:h-[60px] md:w-[65px] md:h-[50px] sm:w-[50px] bg-[#ECF5FF] 2xl:py-5 xl:py-5 2xl:px-5 xl:px-4 lg:px-2 lg:py-2 md:px-1 sm:px-3 md:py-2 sm:py-3 rounded-[16px] '>
+                <div class='2xl:h-[75px] 2xl:w-[75px] xl:h-[70px] xl:w-[75px] lg:w-[65px] lg:h-[60px] md:w-[65px] md:h-[50px] sm:w-[50px] bg-[#ECF5FF] 2xl:py-5 xl:py-5 2xl:px-5 xl:px-4 lg:px-2 lg:py-2 md:px-1 sm:px-3 md:py-2 sm:py-3 w-[60px] px-2 py-2 rounded-[16px] '>
                   <img class='w-[35px] h-[35px]' src={offers.img} />
                 </div>
                 <div class='text-start'>
