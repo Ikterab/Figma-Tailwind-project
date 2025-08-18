@@ -103,10 +103,10 @@ export function Testimonial() {
             >
               {reviews.map((rec, index) => (
                 <SwiperSlide key={index}>
-                  {/* <div class='flex  2xl:gap-6 xl:gap-6 lg:gap-3 md:gap-3 bg-white shadow-[0_12px_39px_rgb(15,30,104,0.2)] h-[420px] 2xl:w-[794px] xl:w-[700px] lg:w-[650px] md:w-[750px] rounded-[24px] relative mt-12  z-34'>
+                  {/* <div className='flex  2xl:gap-6 xl:gap-6 lg:gap-3 md:gap-3 bg-white shadow-[0_12px_39px_rgb(15,30,104,0.2)] h-[420px] 2xl:w-[794px] xl:w-[700px] lg:w-[650px] md:w-[750px] rounded-[24px] relative mt-12  z-34'>
                    */}
-                  <div class='flex flex-col h-[100%]  w-[100%] gap-1  2xl:gap-6 xl:gap-6 lg:gap-3  max-w-[800px] md:gap-3 sm:gap-3 bg-white shadow-[0_12px_39px_rgb(15,30,104,0.2)]  2xl:w-[100%] xl:w-[700px] lg:w-[100%] md:w-[100%] sm:w-[100%] sm:flex-nowrap sm:flex-row rounded-[24px]    z-34'>
-                    <img class='h-[80%] w-[100%]  sm:h-[100%]  sm:w-[100%]' src={rec.img} />
+                  <div className='flex flex-col h-[100%]  w-[100%] gap-1  2xl:gap-6 xl:gap-6 lg:gap-3  max-w-[800px] md:gap-3 sm:gap-3 bg-white shadow-[0_12px_39px_rgb(15,30,104,0.2)]  2xl:w-[100%] xl:w-[700px] lg:w-[100%] md:w-[100%] sm:w-[100%] sm:flex-nowrap sm:flex-row rounded-[24px]    z-34'>
+                    <img className='h-[80%] w-[100%]  sm:h-[100%]  sm:w-[100%]' src={rec.img} />
                     <div className='flex flex-col text-start'>
                       <h2 className='text-[64px] px-1 font-medium'>
                         {rec?.rate?.[0]}

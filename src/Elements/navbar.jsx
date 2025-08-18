@@ -1,17 +1,34 @@
 import React, { useState } from "react";
+import { useRef } from "react";
+import { Link } from "react-router-dom";
 import hamburger from '../assets/menu-burger-horizontal-svgrepo-com.svg' 
 import Logo from '../assets/Frame 993.svg'
 import close from '../assets/closeicon.svg' 
 import Frame from '../assets/Frame.png'
-import './navbar.css'
+import { Carbrand } from "./companies";
+import { Offers } from "./whochoose";
 
 export function Navbar() {
-    const [open , setOpen ]= useState(false)
+  const [open, setOpen] = useState(false)
+  // const whochooseRef = useRef(null)
+  // const howitworkRef = useRef(null)
+  // const scrollToSection = (ref) => {
+  //   ref.current.scrollIntoView({ behavior: 'smooth' })
+  //   setOpen(false)
+  // }
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id)
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" })
+      setOpen(false)
+    }
+}
+  
   return (
     <>
       <div
-        className='Navbar'
-        class='flex justify-between w-[100%]  font-Poppins text-[#484848]  font-[500] text-[16px] z-10  bg-transparent  2xl:px-20  xl:px-20    lg:px-3 md:whitespace-nowrap'
+        
+        className='flex justify-between w-full  font-Poppins text-[#484848]  font-[500] text-[16px] z-10  bg-transparent    xl:px-20    lg:px-3 md:whitespace-nowrap'
       >
         <ul
           className={`flex flex-col gap-7 items-start w-[300px] fixed z-100 h-[100%] bg-[#c6dcf1] px-7 py-9 transition-all duration-300 ${
@@ -19,17 +36,34 @@ export function Navbar() {
           }`}
         >
           <li className='flex justify-center gap-12 px-'>
-            <img src={Logo} />
+            <Link to='/'>
+              {' '}
+              <img src={Logo} />
+            </Link>
             <img
               src={close}
               className='cursor-pointer'
               onClick={() => setOpen(false)}
             />
           </li>
-          <li className='sideitem'>Become a renter</li>
-          <li className='sideitem'>Rental deals</li>
-          <li className='sideitem'>How it work</li>
-          <li className='sideitem'>Why choose us</li>
+          <li className='sideitem'>
+            <Link to='/Renter'>Become a renter</Link>
+          </li>
+          <li className='sideitem'>
+            <Link to='/Rental'>Rental deals</Link>
+          </li>
+          <li
+            className='sideitem'
+            onClick={() => scrollToSection("howitwork")}
+          >
+            How it work
+          </li>
+          <li
+            className='sideitem'
+            onClick={() => scrollToSection("whochoose")}
+          >
+            Why choose us
+          </li>
         </ul>
         {open && (
           <div
@@ -39,36 +73,74 @@ export function Navbar() {
             }}
           ></div>
         )}
-        <div className='flex px-3 py-3 justify-between w-[100%] 2xl:py-5 xl:py-3 lg:py-3 md:py-5 md:px-5 sm:px-5 sm:py-5'>
-          {' '}
+        <div className='flex px-3 py-3 justify-between w-[100%] 2xl:py-5 xl:py-3 lg:py-3 md:py-5 md:px-5 sm:px-5 sm:py-5 z-60'>
           <div className='logocontainer' class='items-start flex gap-2  '>
             <img
               src={hamburger}
-              className='w-[20px] 2xl:block xl:block lg:hidden md:w-[20px] sm:w-[20px] cursor-pointer'
+              className='w-[20px]  lg:hidden md:w-[20px] sm:w-[20px] cursor-pointer'
               onClick={() => setOpen(true)}
             />
-            <img
-              src={Logo}
-              class='2xl:h-[25.25px] 2xl:w-[116px]  xl:h-[25.25px] xl:w-[116px] lg:h-[25.25px] lg:w-[116px]'
-            />
+            <Link to='/'>
+              <img
+                src={Logo}
+                className='2xl:h-[25.25px] 2xl:w-[116px]  xl:h-[25.25px] xl:w-[116px] lg:h-[25.25px] lg:w-[116px]'
+              />
+            </Link>
           </div>
-          <div class='flex 2xl:gap-10 xl:gap-10 lg:gap-5'>
-            <ul class=' hidden 2xl:flex xl:flex lg:flex  2xl:gap-20 xl:gap-20 lg:gap-10 md:hidden sm:hidden list-none '>
-              <li>Become a renter</li>
-              <li>Rental deals</li>
-              <li>How it work</li>
-              <li>Why choose us</li>
+          <div className='flex 2xl:gap-10 xl:gap-10 lg:gap-5'>
+            <ul className=' hidden   lg:flex   xl:gap-20 lg:gap-10 md:hidden sm:hidden list-none  '>
+              <li className='cursor-pointer'>
+                <Link to='/Renter'>Become a renter</Link>
+              </li>
+              <li className='cursor-pointer'>
+                <Link to='/Rental'>Rental deals</Link>
+              </li>
+              <li
+           className="cursor-pointer"
+                onClick={() => scrollToSection("howitwork")}
+              >
+                How it work
+              </li>
+              <li
+             className="cursor-pointer"
+                onClick={() => scrollToSection("whochoose")}
+              >
+                Why choose us
+              </li>
             </ul>
-            <ul class='flex gap-[10px] 2xl:gap-[55px] xl:gap-[55px] lg:gap-[55px] md:gap-[55px] sm:gap-[55px]'>
-              <li>Sign in</li>
-              <li class='sm:h-[43px] sm:w-[125px] relative bottom-2 sm:px-[32px] sm:py-[9px] px-[20px] py-[6px] bg-[#1572D3] rounded-[8px]'>
-                Sign up
+            <ul className='flex gap-[10px] 2xl:gap-[55px] xl:gap-[55px] lg:gap-[55px] md:gap-[55px] sm:gap-[55px] '>
+              <li className='cursor-pointer'>
+                <Link to='/Login'>Sign in</Link>
+              </li>
+              <li className='cursor-pointer sm:h-[43px] sm:w-[125px] relative bottom-2 sm:px-[32px] sm:py-[9px] px-[20px] py-[6px] bg-[#1572D3] rounded-[8px]'>
+                <Link to='/Signup'>Sign up</Link>
               </li>
             </ul>
           </div>
         </div>
+
+        {/* <div>
+          <div ref={howitworkRef}>
+            <Carbrand />
+          </div>
+          <div ref={whochooseRef}>
+            <Offers />
+          </div>
+        </div> */}
       </div>
     </>
   )   
     
 }
+
+
+
+
+//  <ul className='flex gap-[10px] 2xl:gap-[55px] xl:gap-[55px] lg:gap-[55px] md:gap-[55px] sm:gap-[55px] '>
+//    <li className='cursor-pointer'>
+//      <Link to='/Login'>Sign in</Link>
+//    </li>
+//    <li className='cursor-pointer sm:h-[43px] sm:w-[125px] relative bottom-2 sm:px-[32px] sm:py-[9px] px-[20px] py-[6px] bg-[#1572D3] rounded-[8px]'>
+//      <Link to='/Signup'>Sign up</Link>
+//    </li>
+//  </ul>

@@ -7,6 +7,18 @@
     font-medium  
     
    }
+   .loginInput{
+    @apply
+         w-[350px] 
+         h-[48px] 
+         rounded-lg 
+         border
+         border-[#bfb9cf] 
+         px-2
+         focus:border-[#260e6d]
+         focus:ring-0
+         
+   }
    .footerparts{
     @apply
     flex 

@@ -7,7 +7,7 @@ import frame from '../assets/UP.svg'
 export function DownloadeApp() {
     return (
       <>
-        <div className='flex flex-wrap justify-between w-full mt-2 whitespace-none font-[Poppins]'>
+        <div className='flex flex-wrap  md:flex-nowrap  justify-between w-full mt-2 whitespace-none font-[Poppins]'>
           <div className='relative w-full '>
             <img src={frame} />
           </div>
@@ -35,7 +35,7 @@ export function DownloadeApp() {
           <div>
             <img
               src={iphon}
-              className='2xl:mt-18 xl:mt-18 lg:mt-24 md:mt-20 '
+              className='2xl:mt-1 xl:mt-1 lg:mt-1 md:mt-1 h-full w-full '
             />
           </div>
         </div>

@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useRef } from 'react'
+import { BrowserRouter as Router ,Routes, Route } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { Navbar } from './Elements/navbar'
@@ -9,23 +11,35 @@ import { Rentals } from './Elements/rentaldeal'
 import { Testimonial } from './Elements/Testimonial'
 import { DownloadeApp } from './Elements/downloadeapp'
 import { Footer } from './Elements/footer'
+import Homepage from './Pages/Home'
+import RentalPage from './Pages/Rental'
+import Rentarpage from './Pages/Renter'
+import  Loginpage from './Pages/Login'
+import  Signuppage from './Pages/Signup'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  //  const howitworkRef = useRef(null);
+  // const whochooseRef = useRef(null);
   return (
     <>
-      <div>
-        <Navbar/>
-        <Advertisement />
-        <Carbrand />
-        <Offers />
-        <Rentals />
-        <Testimonial />
-        <DownloadeApp/>
-      <Footer/>
-      </div> 
+      {/* <div>
+        
+      </div>  */}
+      <Router>
+        <div className='min-h-screen flex flex-col '>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<Homepage />} />
+            <Route path='/Renter' element={<Rentarpage />} />
+            <Route path='/Rental' element={<RentalPage />} />
+            <Route path='/Login' element={<Loginpage />} />
+            <Route path='/Signup' element={<Signuppage />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
     </>
   )
 }

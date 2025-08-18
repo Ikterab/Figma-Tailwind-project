@@ -56,7 +56,7 @@ export function Advertisement() {
               {/* <img class='w-[803px] h-[866px] overflow-hidden relative bottom-18 right-[-300px]' src={ Frame} />
                         <img class='overflow-hidden  w-[1048px] h-[537px] relative bottom-170 left-75'src={Car} /> */}
               <img
-                className='z-60  2xl:relative 2xl:bottom-[98px] 2xl:h-[866px] 2xl:w-[800px]  xl:w-[600px] xl:h-[600px] lg:w-[450px] lg:h-[500px]          
+                className='2xl:h-[866px] 2xl:w-[800px]  xl:w-[600px] xl:h-[600px] lg:w-[450px] lg:h-[500px]          
                 xl:relative  xl:bottom-[98px] lg:relative  lg:bottom-[74px] md:w-[400px] md:relative  md:bottom-[80px] sm:w-[350px]  sm:relative  sm:bottom-[80px] sm:mt-auto ml-auto  w-[250px] mt-40                '
                 src={Car}
               />
