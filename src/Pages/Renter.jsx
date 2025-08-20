@@ -138,8 +138,20 @@ function Rentarpage(){
                   onChange={handlechange}
                   className={`border-[1px] h-[48px] w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700 ${
                     error.carbrand ? 'border-red-500 ' : 'border-[#f0f0f0]'
-                  }`}></select>
-                
+                  }`}
+                >
+                  <option value='' disabled>
+                    Select Car Brand *
+                  </option>
+                  <option value='Toyota'>Toyota</option>
+                  <option value='Honda'>Honda</option>
+                  <option value='BMW'>BMW</option>
+                  <option value='Tesla'>Tesla</option>
+                  <option value='Ford'>Ford</option>
+                  <option value='Mercedes'>Mercedes</option>
+                  <option value='Hyundai'>Hyundai</option>
+                </select>
+
                 <input
                   placeholder='Model*'
                   name='model'
