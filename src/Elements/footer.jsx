@@ -14,7 +14,7 @@ export function Footer() {
       <>
         <div
           className={`flex flex-col w-full  bg-[#051C34] text-white gap-10 items-start font-[Poppins] ${
-            Location.pathname === '/' ? '' : 'mt-25 h-[400px] ' }`}
+            Location.pathname === '/' ? '' : 'mt-25  ' }`}
         >
           <div className='flex ml-5 h-[600px] gap-10 justify-self-start  2xl:gap-50 xl:gap-10 lg:gap-10 md:gap-25 sm:gap-20 mt-15  2xl:ml-60 lg:ml-20 xl:ml-30 md:ml-30  sm:ml-10 2xl:w-[1460px]  2xl:h-[250px]  xl:h-[250px] lg:h-[250px]  sm:h-[400px] border-1 border-x-0 border-t-0  border-[#575757]'>
             <div className='flex flex-col gap-2'>

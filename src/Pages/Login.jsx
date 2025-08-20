@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import carpic from '../assets/photo-1565043666747-69f6646db940.avif'
 import carpic1 from'../assets/pngtree-beautiful-background-for-car-rental-advertising-image_16188411.jpg'
 
@@ -114,6 +114,7 @@ function Loginpage() {
           >
             Login
           </button>
+          <p><Link to='/Signup'>I dont have any account</Link></p>
         </div>
       </div>
     </>

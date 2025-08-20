@@ -7,8 +7,11 @@ import close from '../assets/closeicon.svg'
 import Frame from '../assets/Frame.png'
 import { Carbrand } from "./companies";
 import { Offers } from "./whochoose";
+import { useLocation } from "react-router-dom";
 
 export function Navbar() {
+  const location = useLocation()
+  const home=location.pathname==='/'
   const [open, setOpen] = useState(false)
   // const whochooseRef = useRef(null)
   // const howitworkRef = useRef(null)
@@ -26,10 +29,7 @@ export function Navbar() {
   
   return (
     <>
-      <div
-        
-        className='flex justify-between w-full  font-Poppins text-[#484848]  font-[500] text-[16px] z-10  bg-transparent    xl:px-20    lg:px-3 md:whitespace-nowrap'
-      >
+      <div className='flex justify-between w-full  font-Poppins text-[#484848]  font-[500] text-[16px] z-10  bg-transparent    xl:px-20    lg:px-3 md:whitespace-nowrap'>
         <ul
           className={`flex flex-col gap-7 items-start w-[300px] fixed z-100 h-[100%] bg-[#c6dcf1] px-7 py-9 transition-all duration-300 ${
             open === true ? 'left-0' : '-left-[300px]'
@@ -52,18 +52,22 @@ export function Navbar() {
           <li className='sideitem'>
             <Link to='/Rental'>Rental deals</Link>
           </li>
-          <li
-            className='sideitem'
-            onClick={() => scrollToSection("howitwork")}
-          >
-            How it work
-          </li>
-          <li
-            className='sideitem'
-            onClick={() => scrollToSection("whochoose")}
-          >
-            Why choose us
-          </li>
+          {home && (
+            <>
+              <li
+                className='sideitem'
+                onClick={() => scrollToSection('howitwork')}
+              >
+                How it work
+              </li>
+              <li
+                className='sideitem'
+                onClick={() => scrollToSection('whochoose')}
+              >
+                Why choose us
+              </li>{' '}
+            </>
+          )}
         </ul>
         {open && (
           <div
@@ -95,18 +99,22 @@ export function Navbar() {
               <li className='cursor-pointer'>
                 <Link to='/Rental'>Rental deals</Link>
               </li>
-              <li
-           className="cursor-pointer"
-                onClick={() => scrollToSection("howitwork")}
-              >
-                How it work
-              </li>
-              <li
-             className="cursor-pointer"
-                onClick={() => scrollToSection("whochoose")}
-              >
-                Why choose us
-              </li>
+              {home && (
+                <>
+                  <li
+                    className='cursor-pointer'
+                    onClick={() => scrollToSection('howitwork')}
+                  >
+                    How it work
+                  </li>
+                  <li
+                    className='cursor-pointer'
+                    onClick={() => scrollToSection('whochoose')}
+                  >
+                    Why choose us
+                  </li>
+                </>
+              )}
             </ul>
             <ul className='flex gap-[10px] 2xl:gap-[55px] xl:gap-[55px] lg:gap-[55px] md:gap-[55px] sm:gap-[55px] '>
               <li className='cursor-pointer'>

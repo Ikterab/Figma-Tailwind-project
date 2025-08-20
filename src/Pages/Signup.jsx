@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate} from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import { AiFillEye , AiFillEyeInvisible} from "react-icons/ai";
 import { useState } from "react";
 function Signuppage() {
@@ -215,6 +215,9 @@ if (value.password !==value.confirmpassword) {
           {' '}
           Sign Up{' '}
         </button>
+        <p className="text-blue-600 hover:text-red-500">
+          <Link to='/Login'>I already have an account </Link>
+        </p>
       </div>
     </>
   )
