@@ -125,10 +125,10 @@ if (value.doors.trim().length === 0) {
       <>
         <div>
           <div
-            className='w-full justify-center h-150 items-center  bg-center bg-no-repeat   sm:bg-cover bg-black/40 bg-blend-darken py-66'
+            className='w-full justify-center h-150 items-center  bg-center bg-no-repeat   bg-cover bg-black/40 bg-blend-darken py-66'
             style={{ backgroundImage: `url(${car})` }}
           >
-            <h1 className='text-blue-100 text-[44px] text-center font-semibold font-Poppins  py-'>
+            <h1 className='text-blue-100 text-[44px] text-center font-semibold font-Poppins  '>
               Become a renter
             </h1>
             <p className='text-blue-100 text-[20px] font-semibold'>
@@ -136,19 +136,19 @@ if (value.doors.trim().length === 0) {
               renter.
             </p>
           </div>
-          <div className='py-30 w-[620px] m-auto mt-7    px-3 rounded-[4px] pt-7 mb-3'>
+          <div className='py-30 w-full sm:w-[620px]  m-auto mt-7    px-3 rounded-[4px] pt-7 mb-3'>
             <h1 className='text-center text-[27px] font-[300]'>
               Give your information
             </h1>
 
             <div className='flex flex-col gap-10 flex-wrap justify-center text-[14px] align-center py-10 '>
-              <div className='flex justify-center gap-7'>
+              <div className=' flex sm:flex-row flex-col justify-center gap-7'>
                 <input
                   name='fname'
                   value={value.fname}
                   onChange={handlechange}
                   placeholder='First name*'
-                  className={`border-[1px] border-solid border-[#f0f0f0]  h-[48px] w-[280px] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700  ${
+                  className={`border-[1px] border-solid border-[#f0f0f0]  h-[48px] sm:w-[280px] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700  ${
                     error.fname ? 'border-red-500' : 'border-[#f0f0f0]'
                   }`}
                 />
@@ -162,7 +162,7 @@ if (value.doors.trim().length === 0) {
                   }`}
                 />
               </div>
-              <div className='flex justify-center gap-7'>
+              <div className='flex sm:flex-row flex-col justify-center gap-7'>
                 <input
                   placeholder='Email*'
                   name='email'
@@ -182,7 +182,7 @@ if (value.doors.trim().length === 0) {
                   }`}
                 />
               </div>
-              <div className='flex justify-center gap-7'>
+              <div className='flex sm:flex-row flex-col justify-center gap-7'>
                 <select
                   placeholder='Car brand name*'
                   name='carbrand'
@@ -261,7 +261,7 @@ if (value.doors.trim().length === 0) {
                   )}
                 </select>
               </div>
-              <div className='flex justify-center gap-7'>
+              <div className='flex sm:flex-row flex-col justify-center gap-7'>
                 <div className='flex flex-col justify-center '>
                   {' '}
                   <input
@@ -315,7 +315,7 @@ if (value.doors.trim().length === 0) {
                   }`}
                 />
               </div>
-              <div className='flex justify-center gap-7'>
+              <div className='flex sm:flex-row flex-col justify-center gap-7'>
                 <select
                   name='passengerseat'
                   value={value.passengerseat}
@@ -323,7 +323,10 @@ if (value.doors.trim().length === 0) {
                   className={`border-[1px] border-solid border-[#f0f0f0]  h-[48px] w-[280px] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700  ${
                     error.passengerseat ? 'border-red-500' : 'border-[#f0f0f0]'
                   }`}
-                ><option value='' disabled>Select seat</option>
+                >
+                  <option value='' disabled>
+                    Select seat
+                  </option>
                   <option value='2 Passangers'>2 Passangers</option>
                   <option value='4 Passangers'>4 Passangers</option>
                   <option value='6 Passangers'>6 Passangers</option>
@@ -335,39 +338,45 @@ if (value.doors.trim().length === 0) {
                   onChange={handlechange}
                   className={`border-[1px] h-[48px]  w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px]  text-gray-700 ${
                     error.transmission ? 'border-red-500' : 'border-[#f0f0f0]'
-                    }`}>
-                  <option value='' disabled>Select transmission</option>
+                  }`}
+                >
+                  <option value='' disabled>
+                    Select transmission
+                  </option>
                   <option value='automatic-transmission'>Auto</option>
                   <option value='manual-transmission'>Manual</option>
-          </select>
-                
+                </select>
               </div>
-              <div className='flex justify-center gap-7'>
+              <div className='flex sm:flex-row flex-col justify-center gap-7'>
                 <select
                   name='aircool'
                   value={value.aircool}
                   onChange={handlechange}
                   className={`border-[1px] border-solid border-[#f0f0f0]  h-[48px] w-[280px] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700  ${
                     error.aircool ? 'border-red-500' : 'border-[#f0f0f0]'
-                    }`}>
-                  <option value='' disabled>Select car cooling system</option>
-                  <option value='AC' >Air Conditioning </option>
-                  <option value='Motorfan' >Blower Motor/Fan</option>
+                  }`}
+                >
+                  <option value='' disabled>
+                    Select car cooling system
+                  </option>
+                  <option value='AC'>Air Conditioning </option>
+                  <option value='Motorfan'>Blower Motor/Fan</option>
+                </select>
 
-                  </select>
-                
                 <select
                   name='doors'
                   value={value.doors}
                   onChange={handlechange}
                   className={`border-[1px] h-[48px]  w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px]  text-gray-700 ${
                     error.doors ? 'border-red-500' : 'border-[#f0f0f0]'
-                    }`}>
-                  <option value='' disabled>Select door</option>
-                  <option value='2 Doors' >2 Doors</option>
-                  <option value='4 Doors' >4 Doors</option>
-
-                  </select>
+                  }`}
+                >
+                  <option value='' disabled>
+                    Select door
+                  </option>
+                  <option value='2 Doors'>2 Doors</option>
+                  <option value='4 Doors'>4 Doors</option>
+                </select>
               </div>
 
               <input
@@ -375,7 +384,7 @@ if (value.doors.trim().length === 0) {
                 name='message'
                 value={value.message}
                 onChange={handlechange}
-                className={`w-[590px] ml-1 border-[1px] rounded-[4px] h-[150px]  border-solid border-[#f0f0f0] pb-20 px-4   placeholder:text-[16px] text-gray-700 ${
+                className={`sm:w-[590px] ml-1 border-[1px] rounded-[4px] h-[150px]  border-solid border-[#f0f0f0] pb-20 px-4   placeholder:text-[16px] text-gray-700 ${
                   error.message ? 'border-red-500' : 'border-[#f0f0f0]'
                 }`}
               />
