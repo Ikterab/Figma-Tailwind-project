@@ -90,7 +90,7 @@ export function Rentals() {
             {rental.map((cars, index) => (
               <div
                 key={index}
-                className='        h-[450px]  sm:h-[405px] flex-wrap w-[356px] flex  sm:flex-nowrap sm:w-[256px] flex-col gap-1 bg-white rounded-[9px] shadow-[0_12px_24px_rgb(19,24,104,0.2)]'
+                className='py-7 flex-wrap w-[356px] flex  sm:flex-nowrap sm:w-[256px] flex-col gap-1 bg-white rounded-[9px] shadow-[0_12px_24px_rgb(19,24,104,0.2)]'
               >
                 <img
                   src={cars.img0}
