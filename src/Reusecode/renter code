@@ -1,0 +1,22 @@
+const submissionJSON = {
+            fname: value.fname,
+            lname: value.lname,
+            email:value.email,
+        phone:value.phone,
+        carbrand:value.carbrand,
+        model:value.model,
+        img:value.img.map((file)=>file.name),
+            carnumber: value.carnumber,
+        passengerseat:value.passengerseat,
+            transmission: value.transmission,
+            aircool: value.aircool,
+            doors:value.doors,
+            message: value.message,
+        submittedAt: new Date().toISOString()
+          }
+
+
+
+          Option 1: Use the downloaded JSON file and read it in other components.
+
+Option 2 (better for live use): Keep allUsers in a global state (Context or Redux) so any component can read it instantly without downloading/uploading.

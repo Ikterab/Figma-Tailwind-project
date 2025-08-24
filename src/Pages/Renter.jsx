@@ -1,12 +1,36 @@
 import React from "react";
-import { useState } from "react";
+
+import { useState, useContext } from "react";
+import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 import car from "../assets/Carstreetpic.png"
 
 
 function Rentarpage(){
     const [value, setValue] = useState({ fname: '', lname: '', email: '', phone: '', carbrand: '', model: '',img:[], carnumber:'',passengerseat:'', transmission:'',aircool:'' ,doors:'',   message: '' })
-    const [error,setError]=useState({})
-    const handlechange = (e) => {
+  const [error, setError] = useState({})
+  const { submission, addSubmission } =useContext(SubmissionContext)
+    
+  
+  const filetoBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onload = () => resolve(reader.result)
+      reader.onerror = reject
+      reader.readAsDataURL(file)
+    })
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  const handlechange = (e) => {
        
        let {name,value, files}=e.target
       if (name === 'img') {
@@ -20,7 +44,7 @@ function Rentarpage(){
         
     }
 
-    const handlesubmit = (e) => {                               // here name is key and value is the input i give here
+    const handlesubmit = async(e) => {                               // here name is key and value is the input i give here
         e.preventDefault()
         const newerror = {}
         if (value.fname.length < 3)
@@ -79,22 +103,14 @@ if (value.doors.trim().length === 0) {
         setError(newerror)
         if (Object.keys(newerror).length=== 0)
         {
+          const imgBase64= await Promise.all(value.img.map(file=>filetoBase64(file)))
           const submissionJSON = {
-            fname: value.fname,
-            lname: value.lname,
-            email:value.email,
-        phone:value.phone,
-        carbrand:value.carbrand,
-        model:value.model,
-        img:value.img.map((file)=>file.name),
-            carnumber: value.carnumber,
-        passengerseat:value.passengerseat,
-            transmission: value.transmission,
-            aircool: value.aircool,
-            doors:value.doors,
-            message: value.message,
-        submittedAt: new Date().toISOString()
+            ...value,
+            img: imgBase64,
+            submittedAt:new Date().toISOString()
           }
+          // setAllSubmission(prev=>[...prev,submissionJSON])
+          addSubmission(submissionJSON)
             console.log('Submitted JSON:',submissionJSON)
           alert('Your car uploded ')
             setValue({
@@ -119,7 +135,18 @@ if (value.doors.trim().length === 0) {
     
 
     }
+  const handleDownload = () => {
+    if (submission.length === 0) {
+      alert('No data is here')
+      return
+    }
+    const blob=new Blob([JSON.stringify(submission,null,1)], {type:'application/json'})
 
+    const link = document.createElement('a')
+    link.href = URL.createObjectURL(blob)
+    link.download='all_submission.json'
+  link.click()
+  }
 
     return (
       <>
@@ -157,7 +184,7 @@ if (value.doors.trim().length === 0) {
                   name='lname'
                   value={value.lname}
                   onChange={handlechange}
-                  className={`border-[1px] h-[48px]  w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px]  text-gray-700 ${
+                  className={`border-[1px] h-[48px] sm:w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px]  text-gray-700 ${
                     error.lname ? 'border-red-500' : 'border-[#f0f0f0]'
                   }`}
                 />
@@ -168,7 +195,7 @@ if (value.doors.trim().length === 0) {
                   name='email'
                   value={value.email}
                   onChange={handlechange}
-                  className={`border-[1px] h-[48px] w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700 ${
+                  className={`border-[1px] h-[48px] sm:w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700 ${
                     error.email ? 'border-red-500 ' : 'border-[#f0f0f0]'
                   }`}
                 />
@@ -177,7 +204,7 @@ if (value.doors.trim().length === 0) {
                   name='phone'
                   value={value.phone}
                   onChange={handlechange}
-                  className={`border-[1px] h-[48px] w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700 ${
+                  className={`border-[1px] h-[48px] sm:w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700 ${
                     error.phone ? 'border-red-500 ' : 'border-[#f0f0f0]'
                   }`}
                 />
@@ -188,7 +215,7 @@ if (value.doors.trim().length === 0) {
                   name='carbrand'
                   value={value.carbrand}
                   onChange={handlechange}
-                  className={`border-[1px] h-[48px] w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700 ${
+                  className={`border-[1px] h-[48px] sm:w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700 ${
                     error.carbrand ? 'border-red-500 ' : 'border-[#f0f0f0]'
                   }`}
                 >
@@ -209,7 +236,7 @@ if (value.doors.trim().length === 0) {
                   name='model'
                   value={value.model}
                   onChange={handlechange}
-                  className={`border-[1px] h-[48px] w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700 ${
+                  className={`border-[1px] h-[48px] sm:w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700 ${
                     error.model ? 'border-red-500 ' : 'border-[#f0f0f0]'
                   }`}
                 >
@@ -272,7 +299,7 @@ if (value.doors.trim().length === 0) {
                     // value={value.img}
                     onChange={handlechange}
                     placeholder='Give Images of your car*'
-                    className={`border-[1px] border-solid border-[#f0f0f0]  h-[48px] w-[280px] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700  ${
+                    className={`border-[1px] border-solid border-[#f0f0f0]  h-[48px] sm:w-[280px] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700  ${
                       error.img ? 'border-red-500' : 'border-[#f0f0f0]'
                     }`}
                   />
@@ -310,7 +337,7 @@ if (value.doors.trim().length === 0) {
                   name='carnumber'
                   value={value.carnumber}
                   onChange={handlechange}
-                  className={`border-[1px] h-[48px]  w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px]  text-gray-700 ${
+                  className={`border-[1px] h-[48px]  sm:w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px]  text-gray-700 ${
                     error.carnumber ? 'border-red-500' : 'border-[#f0f0f0]'
                   }`}
                 />
@@ -320,7 +347,7 @@ if (value.doors.trim().length === 0) {
                   name='passengerseat'
                   value={value.passengerseat}
                   onChange={handlechange}
-                  className={`border-[1px] border-solid border-[#f0f0f0]  h-[48px] w-[280px] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700  ${
+                  className={`border-[1px] border-solid border-[#f0f0f0]  h-[48px] sm:w-[280px] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700  ${
                     error.passengerseat ? 'border-red-500' : 'border-[#f0f0f0]'
                   }`}
                 >
@@ -336,7 +363,7 @@ if (value.doors.trim().length === 0) {
                   name='transmission'
                   value={value.transmission}
                   onChange={handlechange}
-                  className={`border-[1px] h-[48px]  w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px]  text-gray-700 ${
+                  className={`border-[1px] h-[48px]  sm:w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px]  text-gray-700 ${
                     error.transmission ? 'border-red-500' : 'border-[#f0f0f0]'
                   }`}
                 >
@@ -352,7 +379,7 @@ if (value.doors.trim().length === 0) {
                   name='aircool'
                   value={value.aircool}
                   onChange={handlechange}
-                  className={`border-[1px] border-solid border-[#f0f0f0]  h-[48px] w-[280px] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700  ${
+                  className={`border-[1px] border-solid border-[#f0f0f0]  h-[48px] sm:w-[280px] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700  ${
                     error.aircool ? 'border-red-500' : 'border-[#f0f0f0]'
                   }`}
                 >
@@ -367,7 +394,7 @@ if (value.doors.trim().length === 0) {
                   name='doors'
                   value={value.doors}
                   onChange={handlechange}
-                  className={`border-[1px] h-[48px]  w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px]  text-gray-700 ${
+                  className={`border-[1px] h-[48px] sm:w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px]  text-gray-700 ${
                     error.doors ? 'border-red-500' : 'border-[#f0f0f0]'
                   }`}
                 >
@@ -396,6 +423,9 @@ if (value.doors.trim().length === 0) {
               >
                 Apply
               </button>
+                <button onClick={handleDownload} className='h-[40px] w-[180px] bg-[#2563eb] text-white font-[600] rounded-[5px]'>
+            Download All Submissions
+          </button>
             </div>
           </div>
         </div>
