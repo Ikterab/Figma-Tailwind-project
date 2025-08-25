@@ -11,7 +11,7 @@ import user from '../assets/user.svg'
 import whitearrow from '../assets/whitearrow.svg'
 import blackarrow from '../assets/black-arrow.svg'
 
-const rental = [
+export const rental = [
   {
     img0: jaguar,
     brand: 'Jaguar XE L P250',
