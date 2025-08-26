@@ -1,0 +1,74 @@
+
+[{
+    "img0":"../assets/Jaguarcar.svg",
+    "brand": "Jaguar XE L P250",
+    "img1": "../assets/Star 1.svg",
+    "rate":"4.8",
+    "review": "(2436 reviews)",
+    "specification": {
+          "img2": ["../assets/user.svg", "4 Passangers"],
+
+      "img3": ["../assets/Auto.svg", "Auto"],
+      "img4": ["../assets/snow.svg", "Air Conditioning"],
+     "img5": ["../assets/Door.svg", "4 Doors"]
+    },
+    "price": "$1800",
+    "day": "/day"
+  },
+  {
+    "img0": "../assets/Audigari.svg",
+    "brand": "Audi R8",
+    "img1": "../assets/Star 1.svg",
+    "rate":" 4.6",
+    "review": "(1936 reviews)",
+    "specification": {
+          "img2": ["../assets/user.svg", "2 Passangers"],
+
+      "img3": ["../assets/Auto.svg", "Auto"],
+      "img4": ["../assets/snow.svg", "Air Conditioning"],
+      "img5": ["../assets/Door.svg", "2 Doors"]
+    },
+    "price": "$2100",
+    "day": "/day"
+  },
+  
+   {
+    "img0": "../assets/BMW M3.svg",
+    "brand": "BMW M3",
+    "img1": "../assets/Star 1.svg",
+    "rate":" 4.5",
+    "review": "(2036 reviews)",
+    "specification": {
+          "img2": ["../assets/user.svg", "4 Passangers"],
+
+      "img3": ["../assets/Auto.svg", "Auto"],
+      "img4": ["../assets/snow.svg", "Air Conditioning"],
+      "img5": ["../assets/Door.svg", "4 Doors"]
+    },
+    "price": "$1600",
+    "day": "/day"
+  },
+  
+   {
+    "img0": "../assets/Lamborginicar.svg",
+    "brand": "Lamborghini Huracan",
+    "img1": "../assets/Star 1.svg",
+    "rate":" 4.3",
+    "review": "(2236 reviews)",
+    "specification": {
+          "img2": ["../assets/user.svg", "2 Passangers"],
+
+      "img3": ["../assets/Auto.svg", "Auto"],
+      "img4": ["../assets/snow.svg", "Air Conditioning"],
+      "img5": ["../assets/Door.svg", "2 Doors"]
+    },
+    "price": "$1600",
+    "day": "/day"
+  }
+
+
+
+
+
+
+]

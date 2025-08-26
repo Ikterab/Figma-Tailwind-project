@@ -7,7 +7,7 @@ import call from '../assets/call.svg'
 import sms from '../assets/sms.svg'
 import facebook from '../assets/facebook.svg'
 import instra from '../assets/instagram.svg'
-import { rental } from "../Elements/rentaldeal";
+import Carsdata from '../Reusecode/cardata.json'
 
 function RentalPage() {
      const [selection,setSelection]=useState({brand:null, model:[]})
