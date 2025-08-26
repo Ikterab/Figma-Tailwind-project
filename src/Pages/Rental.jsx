@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 // import background from '../assets/2022-12-toyota-corolla-sedan-ascent-sport-hybrid-hero-16x9-1.jpg'
 import Calander from '../assets/calendar.svg'
 import Location from '../assets/location.svg'
@@ -8,37 +9,78 @@ import sms from '../assets/sms.svg'
 import facebook from '../assets/facebook.svg'
 import instra from '../assets/instagram.svg'
 import Carsdata from '../Reusecode/cardata.json'
+import whitearrow from '../assets/whitearrow.svg'
 
+
+
+const fliter = [
+  {
+    img: Location,
+    type: 'Location',
+    description: 'Search your location',
+  },
+  {
+    img: Calander,
+    type: 'Pickup date',
+    description: 'Tue 15 Feb, 09:00',
+  },
+  {
+    img: Calander,
+    type: 'Return date',
+    description: 'Thu 16 Feb, 11:00',
+  },
+]
 function RentalPage() {
+     const [cars,setCars]=useState([])
      const [selection,setSelection]=useState({brand:null, model:[]})
   
   
   // const carbrand=['Toyota', 'Honda' , 'BMW', 'Tesla', 'Hyundai']
-  const cardata = {
-    Toyota: ['Corolla', 'Camry', 'RAV4'],
-    Honda: ['Civic', 'Accord', 'CR-V'],
-    BMW: ['X5', 'X3', 'M3'],
-    Tesla: ['Model S', 'Model 3', 'Model X'],
-    Hyundai: ['Elantra', 'Sonata', 'Tucson'],
-  }
+  
+  
+  useEffect(() => 
+    {
+    setCars(Carsdata)
+    },[])
+  
+  
+  // const cardata = {
+  //   Toyota: ['Corolla', 'Camry', 'RAV4'],
+  //   Honda: ['Civic', 'Accord', 'CR-V'],
+  //   BMW: ['X5', 'X3', 'M3'],
+  //   Tesla: ['Model S', 'Model 3', 'Model X'],
+  //   Hyundai: ['Elantra', 'Sonata', 'Tucson'],
+  // }
+
 
  
-  const carbrand = Object.keys(cardata)
+  // const carbrand = Object.keys(cardata)
   const brandchange = (value) => {
     setSelection({
-      brand: setSelection.brand === value ? null : value,
+      brand: selection.brand === value ? null : value,
       model:[]
 })    
   }
-  const getCarsToDisplay = () => {
-    if (!selection.brand) return rental
-    if (!selection.model) { return Object.values(cardata[selection.brand].flat()) }
+  // const getCarsToDisplay = () => {
+  //   if (!selection.brand) return rental
+  //   if (!selection.model) { return Object.values(cardata[selection.brand].flat()) }
  
-  return cardata[selection.brand][selection.model]
+  // return cardata[selection.brand][selection.model]
  
+  // }
+
+  let displayCars = []
+  if (selection.model.length>0) {
+    displayCars=cars.filter((c)=>selection.model.includes(c.model)) 
+    
+  } else if (selection.brand)
+  {
+    displayCars=cars.filter((c)=>c.brand===selection.brand)
+  } else {
+    displayCars=[...cars]
   }
-  
-  
+const brands=[...new Set(cars.map((prev)=>prev.brand))] 
+const models=[...new Set(cars.filter((m)=>m.brand===selection.brand).map((c)=>c.model))] 
 
 const modelChange = (modelItem) => {
   setSelection((prev) => ({
@@ -50,26 +92,10 @@ const modelChange = (modelItem) => {
 }
   
   
-  const fliter = [
-          {
-            img: Location,
-            type: 'Location',
-            description: 'Search your location',
-          },
-          {
-            img: Calander,
-            type: 'Pickup date',
-            description: 'Tue 15 Feb, 09:00',
-          },
-          {
-            img: Calander,
-            type: 'Return date',
-            description: 'Thu 16 Feb, 11:00',
-          },
-        ]
+  
     return (
       <div>
-        <div className="h-[800px] w-full flex flex-col justify-start items-start  bg-[url('/src/assets/carsimg/8_s.jpg')]  bg-center bg-cover bg-no-repeat overflow-hidden py-10  ">
+        <div className="h-[800px] w-full flex flex-col justify-start items-start  bg-[url('/carsimg/8_s.jpg')]  bg-center bg-cover bg-no-repeat overflow-hidden py-10  ">
           <div className='px-40'>
             <h1 className='text-[#eaf3f3ea] font-semibold text-[50px] font-Poppins text-start flex justify-start  '>
               Find, book and rent a car easily
@@ -140,13 +166,13 @@ const modelChange = (modelItem) => {
             </button>
           </div>
         </div>
-        <div className="flex">
+        <div className='flex gap-[80px]'>
           <div className='flex flex-col gap-5 '>
             {' '}
             <div className=' w-[140px] bg-white shadow-[1px_2px_12px_rgb(0,0,0,0.3)] flex flex-col justify-center gap-3 items-start  mt-6 ml-4  px-5 py-5 rounded-sm '>
               <h className='text-[15px] font-semibold'>Car brands</h>
 
-              {carbrand.map((Brand, index) => (
+              {brands.map((Brand, index) => (
                 <label key={index} className='flex gap-2'>
                   <input
                     type='checkbox'
@@ -162,24 +188,93 @@ const modelChange = (modelItem) => {
                 <h2 className='text-[15px] font-semibold'>
                   {selection.brand} Models:
                 </h2>
-                {cardata[selection?.brand].map((models, index) => (
+                {models.map((carmodels, index) => (
                   <label key={index} className='flex gap-2'>
                     <input
                       type='checkbox'
-                      checked={selection.model.includes(models)}
-                      onClick={() => modelChange(models)}
+                      checked={selection.model.includes(carmodels)}
+                      onClick={() => modelChange(carmodels)}
                     />
-                    <span>{models}</span>
+                    <span>{carmodels}</span>
                   </label>
                 ))}
               </div>
             )}
           </div>
+          <div className=' flex flex-wrap justify-center py-5 items-center gap-8 2xl:gap-15 xl:gap-10 lg:gap-3 md:gap-10 sm:gap-10 text-start'>
+            {displayCars.map((car, index) => (
+              <div
+                key={index}
+                className='py-7 flex-wrap   w-[356px] flex  sm:flex-nowrap  md:w-[240px] sm:w-[296px] flex-col gap-1 bg-white rounded-[9px] shadow-[0_12px_24px_rgb(19,24,104,0.2)]'
+              >
+                <img
+                  src={car.img0}
+                  className={`px-6 py-4  h-[200px]  ${
+                    index % 2 !== 0 ? 'py-5.5' : ''
+                  }`}
+                />
+                <h3 className='whitespace-nowrap sm:ml-6 ml-15 sm:text-[18px] text-[20px] font-medium'>
+                  {car.Name}
+                </h3>
+                <div className='flex gap-3  px-15 sm:px-5 py-1'>
+                  <img src={car.img1} />
+                  <div className='flex gap-1'>
+                    <h3 className=' sm:text-[13px] text-[15px] font-medium'>
+                      {car.rate}
+                    </h3>
+                    <h3 className='whitespace-nowrap text-[#959595]   text-[15px] sm:text-[12px]'>
+                      {car.review}
+                    </h3>
+                  </div>
+                </div>
 
-          <div>
+                <div className='flex flex-wrap m-auto justify-center  gap-1 sm:gap-0 sm:justify-between sm:px-5 sm:py-1 '>
+                  <div className='flex justify-between gap-13 '>
+                    <div className='flex gap-1 py-1'>
+                      <img src={car?.specification?.img2?.[0]} />
+                      <p className=' text-[15px] sm:text-[12px] text-[#959595] font-normal whitespace-nowrap'>
+                        {car?.specification?.img2?.[1]}
+                      </p>
+                    </div>
+                    <div className='flex gap-1 py-1'>
+                      <img src={car?.specification?.img3?.[0]} />
+                      <p className='text-[15px] sm:text-[12px] text-[#959595] font-normal whitespace-nowrap '>
+                        {car?.specification?.img3?.[1]}
+                      </p>
+                    </div>
+                  </div>
 
-
-            
+                  <div className='flex justify-between gap-8'>
+                    <div className='flex whitespace-nowrap gap-1 py-1'>
+                      <img src={car?.specification?.img4?.[0]} />
+                      <p className='text-[15px] sm:text-[12px] text-[#959595] font-normal whitespace-nowrap'>
+                        {car?.specification?.img4?.[1]}
+                      </p>
+                    </div>
+                    <div className='flex gap-1 py-1'>
+                      <img src={car?.specification?.img5?.[0]} />
+                      <p className='text-[15px] sm:text-[12px] text-[#959595] font-normal whitespace-nowrap  '>
+                        {car?.specification?.img5?.[1]}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className='flex justify-between px-10 py-3 sm:px-1 mt-2 sm:py-4 border-1 border-b-0 border-x-0 sm:w-[208px] ml-6 border-[#E0E0E0]'>
+                  <h3 className='text-[14px] text-[#595959] font-[300]'>
+                    Price
+                  </h3>
+                  <div className='flex text-[14px]'>
+                    <h3 className='text-[16px] font-medium'>{car.price}</h3>
+                    <h3 className='text-[#595959] text-[14px]'>{car.day}</h3>
+                  </div>
+                </div>
+                <button className='flex gap-1 sm:ml-5 m-auto   px-14 bg-[#1572D3] items-center w-[208px] h-[40px] rounded-[8px] text-[14px] text-white cursor-pointer'>
+                  <Link to={`/car/${index}`} className="flex gap-1">
+                    Rent now <img src={whitearrow} />
+                  </Link>
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </div>

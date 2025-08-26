@@ -1,9 +1,9 @@
 import React from "react";
 import jaguar from '../assets/Jaguarcar.svg'
 import Audi from '../assets/Audigari.svg'
-import BMW from '../assets/BMW M3.svg'
+import BMW from '../assets/BMWM3.svg'
 import lamborgini from '../assets/Lamborginicar.svg'
-import star from '../assets/Star 1.svg'
+import star from '../assets/Star1.svg'
 import snow from '../assets/snow.svg'
 import auto from '../assets/Auto.svg'
 import door from '../assets/Door.svg'
