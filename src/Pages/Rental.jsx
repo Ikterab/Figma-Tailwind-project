@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import background from '../assets/2022-12-toyota-corolla-sedan-ascent-sport-hybrid-hero-16x9-1.jpg'
@@ -10,7 +10,11 @@ import facebook from '../assets/facebook.svg'
 import instra from '../assets/instagram.svg'
 import Carsdata from '../Reusecode/cardata.json'
 import whitearrow from '../assets/whitearrow.svg'
-
+import user from '../assets/user.svg'
+import auto from '../assets/Auto.svg'
+import snow from '../assets/snow.svg'
+import door from '../assets/Door.svg'
+import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 
 
 const fliter = [
@@ -33,15 +37,15 @@ const fliter = [
 function RentalPage() {
      const [cars,setCars]=useState([])
      const [selection,setSelection]=useState({brand:null, model:[]})
-  
+  const {submission}=useContext(SubmissionContext)
   
   // const carbrand=['Toyota', 'Honda' , 'BMW', 'Tesla', 'Hyundai']
   
   
   useEffect(() => 
     {
-    setCars(Carsdata)
-    },[])
+    setCars([...Carsdata,...submission])
+    },[submission])
   
   
   // const cardata = {
@@ -166,10 +170,10 @@ const modelChange = (modelItem) => {
             </button>
           </div>
         </div>
-        <div className='flex gap-[80px]'>
+        <div className='flex flex-col sm:flex-row    gap-[80px]'>
           <div className='flex flex-col gap-5 '>
             {' '}
-            <div className=' w-[140px] bg-white shadow-[1px_2px_12px_rgb(0,0,0,0.3)] flex flex-col justify-center gap-3 items-start  mt-6 ml-4  px-5 py-5 rounded-sm '>
+            <div className=' sm:w-[140px] w-full bg-white shadow-[1px_2px_12px_rgb(0,0,0,0.3)] flex flex-wrap  sm:flex-col  justify-center gap-3 items-start  mt-6 sm:ml-4  px-5 py-5 rounded-sm '>
               <h className='text-[15px] font-semibold'>Car brands</h>
 
               {brands.map((Brand, index) => (
@@ -184,7 +188,7 @@ const modelChange = (modelItem) => {
               ))}
             </div>
             {selection.brand && (
-              <div className='flex flex-col gap-3 w-[140px]  bg-white  shadow-[1px_2px_12px_rgb(0,0,0,0.3)] items-start ml-4 px-4 py-5 rounded-sm'>
+              <div className='flex flex-wrap sm:flex-col w-full gap-3 sm:w-[140px]   bg-white  shadow-[1px_2px_12px_rgb(0,0,0,0.3)] items-start sm:ml-4 px-4 py-5 rounded-sm'>
                 <h2 className='text-[15px] font-semibold'>
                   {selection.brand} Models:
                 </h2>
@@ -214,7 +218,7 @@ const modelChange = (modelItem) => {
                   }`}
                 />
                 <h3 className='whitespace-nowrap sm:ml-6 ml-15 sm:text-[18px] text-[20px] font-medium'>
-                  {car.Name}
+                  {car.brand}{' ' }{car.model}
                 </h3>
                 <div className='flex gap-3  px-15 sm:px-5 py-1'>
                   <img src={car.img1} />
@@ -231,30 +235,30 @@ const modelChange = (modelItem) => {
                 <div className='flex flex-wrap m-auto justify-center  gap-1 sm:gap-0 sm:justify-between sm:px-5 sm:py-1 '>
                   <div className='flex justify-between gap-13 '>
                     <div className='flex gap-1 py-1'>
-                      <img src={car?.specification?.img2?.[0]} />
+                      <img src={user} />
                       <p className=' text-[15px] sm:text-[12px] text-[#959595] font-normal whitespace-nowrap'>
-                        {car?.specification?.img2?.[1]}
+                        {car?.specification?.user}
                       </p>
                     </div>
                     <div className='flex gap-1 py-1'>
-                      <img src={car?.specification?.img3?.[0]} />
+                      <img src={auto} />
                       <p className='text-[15px] sm:text-[12px] text-[#959595] font-normal whitespace-nowrap '>
-                        {car?.specification?.img3?.[1]}
+                        {car?.specification?.transmission}
                       </p>
                     </div>
                   </div>
 
                   <div className='flex justify-between gap-8'>
                     <div className='flex whitespace-nowrap gap-1 py-1'>
-                      <img src={car?.specification?.img4?.[0]} />
+                      <img src={snow} />
                       <p className='text-[15px] sm:text-[12px] text-[#959595] font-normal whitespace-nowrap'>
-                        {car?.specification?.img4?.[1]}
+                        {car?.specification?.aircool}
                       </p>
                     </div>
                     <div className='flex gap-1 py-1'>
-                      <img src={car?.specification?.img5?.[0]} />
+                      <img src={door} />
                       <p className='text-[15px] sm:text-[12px] text-[#959595] font-normal whitespace-nowrap  '>
-                        {car?.specification?.img5?.[1]}
+                        {car?.specification?.doors}
                       </p>
                     </div>
                   </div>
@@ -269,7 +273,7 @@ const modelChange = (modelItem) => {
                   </div>
                 </div>
                 <button className='flex gap-1 sm:ml-5 m-auto   px-14 bg-[#1572D3] items-center w-[208px] h-[40px] rounded-[8px] text-[14px] text-white cursor-pointer'>
-                  <Link to={`/car/${index}`} className="flex gap-1">
+                  <Link to={`/car/${index}`} className='flex gap-1'>
                     Rent now <img src={whitearrow} />
                   </Link>
                 </button>

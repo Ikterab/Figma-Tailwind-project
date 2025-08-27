@@ -6,7 +6,7 @@ import car from "../assets/Carstreetpic.png"
 
 
 function Rentarpage(){
-    const [value, setValue] = useState({ fname: '', lname: '', email: '', phone: '', carbrand: '', model: '',img:[], carnumber:'',passengerseat:'', transmission:'',aircool:'' ,doors:'',   message: '' })
+    const [value, setValue] = useState({ fname: '', lname: '', email: '', phone: '', brand: '', model: '',img0:[], carnumber:'',passengerseat:'', transmission:'',aircool:'' ,doors:'',   message: '' })
   const [error, setError] = useState({})
   const { submission, addSubmission } =useContext(SubmissionContext)
     
@@ -33,9 +33,9 @@ function Rentarpage(){
   const handlechange = (e) => {
        
        let {name,value, files}=e.target
-      if (name === 'img') {
-        setValue((prev) => ({ ...prev, img:[...prev.img, ...Array.from(files)] }))
-        setError((prev) => ({ ...prev, img: '' }))
+      if (name === 'img0') {
+        setValue((prev) => ({ ...prev, img0:[...prev.img0, ...Array.from(files)] }))
+        setError((prev) => ({ ...prev, img0: '' }))
       }  
        else {
     setValue((prev) => ({ ...prev, [name]: value }))
@@ -67,18 +67,18 @@ function Rentarpage(){
         {
            newerror.phone='Enter valied phone number'
         }
-        if (value.carbrand.length < 3)
+        if (value.brand.length < 3)
         {
-            newerror.carbrand="Enter car brand name."
+            newerror.brand="Enter car brand name."
         }
         if (value.model.length < 2)
         {
             newerror.model='Select model'
         }
            
-      if (value.img.length===0)
+      if (value.img0.length===0)
       {
-        newerror.img='Give car images'
+        newerror.img0='Give car images'
       }
       if (value.carnumber.trim().length === 0)
       {
@@ -103,10 +103,10 @@ if (value.doors.trim().length === 0) {
         setError(newerror)
         if (Object.keys(newerror).length=== 0)
         {
-          const imgBase64= await Promise.all(value.img.map(file=>filetoBase64(file)))
+          const img0Base64= await Promise.all(value.img0.map(file=>filetoBase64(file)))
           const submissionJSON = {
             ...value,
-            img: imgBase64,
+            img0: img0Base64,
             submittedAt:new Date().toISOString()
           }
           // setAllSubmission(prev=>[...prev,submissionJSON])
@@ -118,11 +118,12 @@ if (value.doors.trim().length === 0) {
               lname: '',
               email: '',
               phone: '',
-              carbrand: '',
+              brand: '',
               model: '',
-              img: [],
+              img0: [],
               carnumber: '',
               passengerseat: '',
+              transmission:'',
               aircool: '',
               doors:'',
               message: '',
@@ -212,11 +213,11 @@ if (value.doors.trim().length === 0) {
               <div className='flex sm:flex-row flex-col justify-center gap-7'>
                 <select
                   placeholder='Car brand name*'
-                  name='carbrand'
-                  value={value.carbrand}
+                  name='brand'
+                  value={value.brand}
                   onChange={handlechange}
                   className={`border-[1px] h-[48px] sm:w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700 ${
-                    error.carbrand ? 'border-red-500 ' : 'border-[#f0f0f0]'
+                    error.brand ? 'border-red-500 ' : 'border-[#f0f0f0]'
                   }`}
                 >
                   <option value='' disabled>
@@ -241,7 +242,7 @@ if (value.doors.trim().length === 0) {
                   }`}
                 >
                   <option value=''>Select model</option>
-                  {value.carbrand === 'Toyota' && (
+                  {value.brand === 'Toyota' && (
                     <>
                       <option value='Corolla'>Corolla</option>
                       <option value='Camry'>Camry</option>
@@ -251,7 +252,7 @@ if (value.doors.trim().length === 0) {
                       <option vlaue='Frotuner'>Frotuner</option>
                     </>
                   )}
-                  {value.carbrand === 'Honda' && (
+                  {value.brand === 'Honda' && (
                     <>
                       <option value='Civic'>Civic</option>
                       <option value='Accord'>Accord</option>
@@ -260,7 +261,7 @@ if (value.doors.trim().length === 0) {
                     </>
                   )}
 
-                  {value.carbrand === 'BMW' && (
+                  {value.brand === 'BMW' && (
                     <>
                       <option value='X5'>X5</option>
                       <option value='X7'>X7</option>
@@ -268,7 +269,7 @@ if (value.doors.trim().length === 0) {
                       <option value='M5'>M5</option>
                     </>
                   )}
-                  {value.carbrand === 'Tesla' && (
+                  {value.brand === 'Tesla' && (
                     <>
                       <option value='Model S'>Model S</option>
                       <option value='Model 3'>Model 3</option>
@@ -276,7 +277,7 @@ if (value.doors.trim().length === 0) {
                       <option value='Model Y'>Model Y</option>
                     </>
                   )}
-                  {value.carbrand === 'Hyundai' && (
+                  {value.brand === 'Hyundai' && (
                     <>
                       <option value='Elantra'>Elantra</option>
                       <option value='Sonata'>Sonata</option>
@@ -294,21 +295,21 @@ if (value.doors.trim().length === 0) {
                   <input
                     type='file'
                     accept='image/*'
-                    name='img'
+                    name='img0'
                     multiple
-                    // value={value.img}
+                    // value={value.img0}
                     onChange={handlechange}
                     placeholder='Give Images of your car*'
                     className={`border-[1px] border-solid border-[#f0f0f0]  h-[48px] sm:w-[280px] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700  ${
-                      error.img ? 'border-red-500' : 'border-[#f0f0f0]'
+                      error.img0 ? 'border-red-500' : 'border-[#f0f0f0]'
                     }`}
                   />
-                  {value.img.length > 0 && (
+                  {value.img0.length > 0 && (
                     <div className='flex gap-1 flex-wrap mt-1 '>
-                      {value.img.map((file, index) => (
+                      {value.img0.map((file, index) => (
                         <div key={index} className='relative '>
                           {/* Image Preview */}
-                          <img
+                          <img0
                             src={URL.createObjectURL(file)}
                             alt={`preview ${index + 1}`}
                             className='w-[120px] h-[100px] object-cover rounded shadow'
@@ -318,10 +319,10 @@ if (value.doors.trim().length === 0) {
                           <button
                             type='button'
                             onClick={() => {
-                              const updatedImgs = value.img.filter(
+                              const updatedimg0s = value.img0.filter(
                                 (_, i) => i !== index
                               )
-                              setValue({ ...value, img: updatedImgs })
+                              setValue({ ...value, img0: updatedimg0s })
                             }}
                             className='absolute top-1 right-1 bg-red-500 text-white text-xs px-2 py-1 rounded'
                           >

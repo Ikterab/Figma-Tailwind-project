@@ -15,7 +15,9 @@ import Homepage from './Pages/Home'
 import RentalPage from './Pages/Rental'
 import Rentarpage from './Pages/Renter'
 import  Loginpage from './Pages/Login'
-import  Signuppage from './Pages/Signup'
+import Signuppage from './Pages/Signup'
+import Cardetails from './Pages/CarDetails'
+import Authofrenter from './Pages/RentcarAuth'
 import './App.css'
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
             <Route path='/Rental' element={<RentalPage />} />
             <Route path='/Login' element={<Loginpage />} />
             <Route path='/Signup' element={<Signuppage />} />
+            <Route path='/car/:id' element={<Cardetails />} />
+            <Route path='/RentcarAuth' element={<Authofrenter/> } />
           </Routes>
           <Footer />
         </div>

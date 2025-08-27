@@ -1,19 +1,25 @@
 
+
 [{
   "img0": "/carsimg/Jaguarcar.svg",
   "Name": "Jaguar XE L P250",
+  "fname":"Mt",
+  "lname":"kt",
+"email":"egg@gmail.com",
+   "Phone":"190000988999",
   "brand": "Jaguar ",
   "model": "XE L P250",
-
+"message":"Will be shown soon. On working....",
   "img1": "/Decorate/Star1.svg",
   "rate": "4.8",
   "review": "(2436 reviews)",
   "specification": {
-    "img2": ["/Decorate/user.svg", "4 Passangers"],
+    "user":"4 Passangers",
 
-    "img3": ["/Decorate/Auto.svg", "Auto"],
-    "img4": ["/Decorate/snow.svg", "Air Conditioning"],
-    "img5": ["/Decorate/Door.svg", "4 Doors"]
+    "transmission":  "Auto",
+    "aircool":  "Air Conditioning",
+    "doors":  "4 Doors"
+    
   },
   "price": "$1800",
   "day": "/day"
@@ -29,11 +35,11 @@
     "rate": " 4.6",
     "review": "(1936 reviews)",
     "specification": {
-      "img2": ["/Decorate/user.svg", "2 Passangers"],
+      "user": "2 Passangers",
 
-      "img3": ["/Decorate/Auto.svg", "Auto"],
-      "img4": ["/Decorate/snow.svg", "Air Conditioning"],
-      "img5": ["/Decorate/Door.svg", "2 Doors"]
+      "transmission":  "Auto",
+      "aircool": "Air Conditioning",
+      "doors":  "2 Doors"
     },
     "price": "$2100",
     "day": "/day"
@@ -43,6 +49,12 @@
      "img0": "/carsimg/BMWM3.svg",
 
      "Name": "BMW M3",
+     "fname": "Mt",
+     "lname": "kt",
+     "email": "egg@gmail.com",
+     "Phone": "190000988999",
+     "message": "Will be shown soon. On working....",
+
      "brand": "BMW",
      "model": "M3",
 
@@ -51,11 +63,11 @@
      "rate": " 4.5",
      "review": "(2036 reviews)",
      "specification": {
-       "img2": ["/Decorate/user.svg", "4 Passangers"],
+       "user": "4 Passangers",
 
-       "img3": ["/Decorate/Auto.svg", "Auto"],
-       "img4": ["/Decorate/snow.svg", "Air Conditioning"],
-       "img5": ["/Decorate/Door.svg", "4 Doors"]
+       "transmission": "Auto",
+       "aircool": "Air Conditioning",
+       "doors": "4 Doors"
      },
      "price": "$1600",
      "day": "/day"
@@ -72,16 +84,22 @@
      "rate": " 4.3",
      "review": "(2236 reviews)",
      "specification": {
-       "img2": ["/Decorate/user.svg", "2 Passangers"],
+       "user":  "2 Passangers",
 
-       "img3": ["/Decorate/Auto.svg", "Auto"],
-       "img4": ["/Decorate/snow.svg", "Air Conditioning"],
-       "img5": ["/Decorate/Door.svg", "2 Doors"]
+       "transmission": "Auto",
+       "aircool":  "Air Conditioning",
+       "doors":  "2 Doors"
      },
      "price": "$1600",
      "day": "/day"
    },
    {
+     "fname": "Mt",
+     "lname": "kt",
+     "email": "egg@gmail.com",
+     "Phone": "190000988999",
+     "message": "Will be shown soon. On working....",
+
      "img0": "/carsimg/tula-russia-february-28-2021-600nw-1932915491.webp",
      "Name": "Toyota Corolla",
 
@@ -92,17 +110,23 @@
      "rate": " 4.3",
      "review": "(2236 reviews)",
      "specification": {
-       "img2": ["/Decorate/user.svg", "5 Passangers"],
+       "user": "5 Passangers",
 
-       "img3": ["/Decorate/Auto.svg", "Auto"],
-       "img4": ["/Decorate/snow.svg", "Air Conditioning"],
-       "img5": ["/Decorate/Door.svg", "4 Doors"]
+       "transmission": "Auto",
+       "aircool": "Air Conditioning",
+       "doors": "4 Doors"
      },
      "price": "$1600",
      "day": "/day"
    },
 
    {
+     "fname": "Mt",
+     "lname": "kt",
+     "email": "egg@gmail.com",
+     "Phone": "190000988999",
+     "message": "Will be shown soon. On working....",
+
      "img0": "/carsimg/Toyotacorollasuv.jpg",
      "Name": "Toyota Suv",
 
@@ -113,77 +137,101 @@
      "rate": " 4.3",
      "review": "(2236 reviews)",
      "specification": {
-       "img2": ["/Decorate/user.svg", "5 Passangers"],
+       "user": "5 Passangers",
 
-       "img3": ["/Decorate/Auto.svg", "Auto"],
-       "img4": ["/Decorate/snow.svg", "Air Conditioning"],
-       "img5": ["/Decorate/Door.svg", "4 Doors"]
+       "transmission": "Auto",
+       "aircool": "Air Conditioning",
+       "doors": "4 Doors"
      },
      "price": "$1600",
      "day": "/day"
    },
  {
-     "img0": "/carsimg/Toyota rush.png",
-     "Name": "Toyota Suv",
+   "fname": "Mt",
+   "lname": "kt",
+   "email": "egg@gmail.com",
+   "Phone": "190000988999",
+   "message": "Will be shown soon. On working....",
 
-     "brand": "Toyota",
-     "model": "Suv",
-     "img1": "/Decorate/Star1.svg",
+   "img0": "/carsimg/Toyota rush.png",
+   "Name": "Toyota Suv",
 
-     "rate": " 4.3",
-     "review": "(2236 reviews)",
-     "specification": {
-       "img2": ["/Decorate/user.svg", "5 Passangers"],
+   "brand": "Toyota",
+   "model": "Suv",
+   "img1": "/Decorate/Star1.svg",
 
-       "img3": ["/Decorate/Auto.svg", "Auto"],
-       "img4": ["/Decorate/snow.svg", "Air Conditioning"],
-       "img5": ["/Decorate/Door.svg", "4 Doors"]
-     },
-     "price": "$1600",
-     "day": "/day"
+   "rate": " 4.3",
+   "review": "(2236 reviews)",
+   "specification": {
+     "user": "5 Passangers",
+
+     "transmission": "Auto",
+     "aircool": "Air Conditioning",
+     "doors": "4 Doors"
    },
+   "price": "$1600",
+   "day": "/day"
+ },
  {
-     "img0": "/carsimg/download.jpg",
-     "Name": "Toyota Noah",
+   "fname": "Mt",
+   "lname": "kt",
+   "email": "egg@gmail.com",
+   "Phone": "190000988999",
+   "message": "Will be shown soon. On working....",
 
-     "brand": "Toyota",
-     "model": "Noah",
-     "img1": "/Decorate/Star1.svg",
+   "img0": "/carsimg/download.jpg",
+   "Name": "Toyota Noah",
 
-     "rate": " 4.0",
-     "review": "(2236 reviews)",
-     "specification": {
-       "img2": ["/Decorate/user.svg", "5 Passangers"],
+   "brand": "Toyota",
+   "model": "Noah",
+   "img1": "/Decorate/Star1.svg",
 
-       "img3": ["/Decorate/Auto.svg", "Auto"],
-       "img4": ["/Decorate/snow.svg", "Air Conditioning"],
-       "img5": ["/Decorate/Door.svg", "4 Doors"]
-     },
-     "price": "$1600",
-     "day": "/day"
+   "rate": " 4.0",
+   "review": "(2236 reviews)",
+   "specification": {
+     "user": "5 Passangers",
+
+     "transmission": "Auto",
+     "aircool": "Air Conditioning",
+     "doors": "4 Doors"
    },
+   "price": "$1600",
+   "day": "/day"
+ },
 
     {
-     "img0": "/carsimg/Axio1.jpg",
-     "Name": "Toyota Axio",
+      "fname": "Mt",
+      "lname": "kt",
+      "email": "egg@gmail.com",
+      "Phone": "190000988999",
+      "message": "Will be shown soon. On working....",
 
-     "brand": "Toyota",
-     "model": "Corolla",
-     "img1": "/Decorate/Star1.svg",
+      "img0": "/carsimg/Axio1.jpg",
+      "Name": "Toyota Axio",
 
-     "rate": " 4.0",
-     "review": "(2236 reviews)",
-     "specification": {
-       "img2": ["/Decorate/user.svg", "5 Passangers"],
+      "brand": "Toyota",
+      "model": "Corolla",
+      "img1": "/Decorate/Star1.svg",
 
-       "img3": ["/Decorate/Auto.svg", "Auto"],
-       "img4": ["/Decorate/snow.svg", "Air Conditioning"],
-       "img5": ["/Decorate/Door.svg", "4 Doors"]
-     },
-     "price": "$1600",
-     "day": "/day"
-   },
+      "rate": " 4.0",
+      "review": "(2236 reviews)",
+      "specification": {
+        "user": "5 Passangers",
+
+        "transmission": "Auto",
+        "aircool": "Air Conditioning",
+        "doors": "4 Doors"
+      },
+      "price": "$1600",
+      "day": "/day"
+    },
    {
+     "fname": "Mt",
+     "lname": "kt",
+     "email": "egg@gmail.com",
+     "Phone": "190000988999",
+     "message": "Will be shown soon. On working....",
+
      "img0": "/carsimg/Axio2.png",
      "Name": "Toyota Axio 2007",
 
@@ -194,11 +242,11 @@
      "rate": " 4.0",
      "review": "(2236 reviews)",
      "specification": {
-       "img2": ["/Decorate/user.svg", "5 Passangers"],
+       "user": "5 Passangers",
 
-       "img3": ["/Decorate/Auto.svg", "Auto"],
-       "img4": ["/Decorate/snow.svg", "Air Conditioning"],
-       "img5": ["/Decorate/Door.svg", "4 Doors"]
+       "transmission": "Auto",
+       "aircool": "Air Conditioning",
+       "doors": "4 Doors"
      },
      "price": "$1600",
      "day": "/day"
