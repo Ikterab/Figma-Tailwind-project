@@ -91,19 +91,19 @@ function Cardetails() {
               <div className='flex gap-7 w-[350px] flex-wrap font-medium text-[#5f5f93]'>
                 <div className='flex gap-2'>
                   <img src={'/Decorate/user.svg'} />
-                  <h3>{cars?.specification?.user}</h3>
+                  <h3>{cars?.passengerseat}</h3>
                 </div>
                 <div className='flex gap-2'>
                   <img src={'/Decorate/Auto.svg'} />
-                  <h3>{cars?.specification?.transmission}</h3>
+                  <h3>{cars?.transmission}</h3>
                 </div>
                 <div className='flex gap-2'>
                   <img src={'/Decorate/snow.svg'} />
-                  <h3>{cars?.specification?.aircool}</h3>
+                  <h3>{cars?.aircool}</h3>
                 </div>
                 <div className='flex gap-2'>
                   <img src={'/Decorate/Door.svg'} />
-                  <h3>{cars?.specification?.doors}</h3>
+                  <h3>{cars?.doors}</h3>
                 </div>
               </div>
             </div>

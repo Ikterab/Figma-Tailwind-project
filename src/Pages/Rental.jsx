@@ -237,13 +237,13 @@ const modelChange = (modelItem) => {
                     <div className='flex gap-1 py-1'>
                       <img src={user} />
                       <p className=' text-[15px] sm:text-[12px] text-[#959595] font-normal whitespace-nowrap'>
-                        {car?.specification?.user}
+                        {car?.passengerseat}
                       </p>
                     </div>
                     <div className='flex gap-1 py-1'>
                       <img src={auto} />
                       <p className='text-[15px] sm:text-[12px] text-[#959595] font-normal whitespace-nowrap '>
-                        {car?.specification?.transmission}
+                        {car?.transmission}
                       </p>
                     </div>
                   </div>
@@ -252,13 +252,13 @@ const modelChange = (modelItem) => {
                     <div className='flex whitespace-nowrap gap-1 py-1'>
                       <img src={snow} />
                       <p className='text-[15px] sm:text-[12px] text-[#959595] font-normal whitespace-nowrap'>
-                        {car?.specification?.aircool}
+                        {car?.aircool}
                       </p>
                     </div>
                     <div className='flex gap-1 py-1'>
                       <img src={door} />
                       <p className='text-[15px] sm:text-[12px] text-[#959595] font-normal whitespace-nowrap  '>
-                        {car?.specification?.doors}
+                        {car?.doors}
                       </p>
                     </div>
                   </div>

@@ -12,6 +12,7 @@ import { useLocation } from "react-router-dom";
 export function Navbar() {
   const location = useLocation()
   const home=location.pathname==='/'
+  const notHome=location.pathname!=='/'
   const [open, setOpen] = useState(false)
   // const whochooseRef = useRef(null)
   // const howitworkRef = useRef(null)
@@ -45,7 +46,14 @@ export function Navbar() {
               className='cursor-pointer'
               onClick={() => setOpen(false)}
             />
+           
           </li>
+           {
+              notHome && (<>
+              <li className="sideitem"><Link to='/'>Home</Link></li>
+              
+              </>)
+            }
           <li className='sideitem'>
             <Link to='/Renter'>Become a renter</Link>
           </li>
@@ -93,6 +101,14 @@ export function Navbar() {
           </div>
           <div className='flex 2xl:gap-10 xl:gap-10 lg:gap-5'>
             <ul className=' hidden   lg:flex   xl:gap-20 lg:gap-10 md:hidden sm:hidden list-none  '>
+             
+              {
+              notHome && (<>
+              <li className="cursor-pointer"><Link to='/'>Home</Link></li>
+              
+              </>)
+            }
+             
               <li className='cursor-pointer'>
                 <Link to='/Renter'>Become a renter</Link>
               </li>
