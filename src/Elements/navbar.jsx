@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import hamburger from '../assets/menu-burger-horizontal-svgrepo-com.svg' 
 import Logo from '../assets/Frame 993.svg'
 import close from '../assets/closeicon.svg' 
@@ -10,10 +10,12 @@ import { Offers } from "./whochoose";
 import { useLocation } from "react-router-dom";
 
 export function Navbar() {
+  const navigate=useNavigate()
   const location = useLocation()
   const home=location.pathname==='/'
   const notHome=location.pathname!=='/'
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(null)
+  const [user,setUser]=useState(null)
   // const whochooseRef = useRef(null)
   // const howitworkRef = useRef(null)
   // const scrollToSection = (ref) => {
@@ -27,13 +29,22 @@ export function Navbar() {
       setOpen(false)
     }
 }
-  
+  useEffect(() => {
+    const loggedinUser = JSON.parse(localStorage.getItem('loggedinuser'))
+setUser(loggedinUser)
+  }, [])
+  const handleLogout = () => {
+    localStorage.removeItem('loggedinUser')
+    setUser(null)
+    setOpen(null)
+    navigate('/')
+  }
   return (
     <>
       <div className='flex justify-between w-full  font-Poppins text-[#484848]  font-[500] text-[16px] z-10  bg-transparent    xl:px-20    lg:px-3 md:whitespace-nowrap'>
         <ul
           className={`flex flex-col gap-7 items-start w-[300px] fixed z-100 h-[100%] bg-[#c6dcf1] px-7 py-9 transition-all duration-300 ${
-            open === true ? 'left-0' : '-left-[300px]'
+            open === 'sidebar' ? 'left-0' : '-left-[300px]'
           }`}
         >
           <li className='flex justify-center gap-12 px-'>
@@ -44,16 +55,16 @@ export function Navbar() {
             <img
               src={close}
               className='cursor-pointer'
-              onClick={() => setOpen(false)}
+              onClick={() => setOpen(null)}
             />
-           
           </li>
-           {
-              notHome && (<>
-              <li className="sideitem"><Link to='/'>Home</Link></li>
-              
-              </>)
-            }
+          {notHome && (
+            <>
+              <li className='sideitem'>
+                <Link to='/'>Home</Link>
+              </li>
+            </>
+          )}
           <li className='sideitem'>
             <Link to='/Renter'>Become a renter</Link>
           </li>
@@ -81,7 +92,7 @@ export function Navbar() {
           <div
             className='colordrop'
             onClick={() => {
-              setOpen(false)
+              setOpen(null)
             }}
           ></div>
         )}
@@ -90,7 +101,7 @@ export function Navbar() {
             <img
               src={hamburger}
               className='w-[20px]  lg:hidden md:w-[20px] sm:w-[20px] cursor-pointer'
-              onClick={() => setOpen(true)}
+              onClick={() => setOpen('sidebar')}
             />
             <Link to='/'>
               <img
@@ -101,14 +112,14 @@ export function Navbar() {
           </div>
           <div className='flex 2xl:gap-10 xl:gap-10 lg:gap-5'>
             <ul className=' hidden   lg:flex   xl:gap-20 lg:gap-10 md:hidden sm:hidden list-none  '>
-             
-              {
-              notHome && (<>
-              <li className="cursor-pointer"><Link to='/'>Home</Link></li>
-              
-              </>)
-            }
-             
+              {notHome && (
+                <>
+                  <li className='cursor-pointer'>
+                    <Link to='/'>Home</Link>
+                  </li>
+                </>
+              )}
+
               <li className='cursor-pointer'>
                 <Link to='/Renter'>Become a renter</Link>
               </li>
@@ -132,14 +143,38 @@ export function Navbar() {
                 </>
               )}
             </ul>
-            <ul className='flex gap-[10px] 2xl:gap-[55px] xl:gap-[55px] lg:gap-[55px] md:gap-[55px] sm:gap-[55px] '>
-              <li className='cursor-pointer'>
-                <Link to='/Login'>Sign in</Link>
-              </li>
-              <li className='cursor-pointer sm:h-[43px] sm:w-[125px] relative bottom-2 sm:px-[32px] sm:py-[9px] px-[20px] py-[6px] bg-[#1572D3] rounded-[8px]'>
-                <Link to='/Signup'>Sign up</Link>
-              </li>
-            </ul>
+
+            {user ? (
+              <div className='relative'>
+                <div
+           onClick={()=>{setOpen(
+                    open === 'menu' ? null : 'menu'
+                  )}}
+                  className={`w-11  h-11 rounded-[50%] bg-blue-500    text-white  text-[23px] border-2 border-red-500     py-1  font-semibold `}
+                >
+                  {user.name.charAt(0).toUpperCase()}
+                </div>
+                {open === 'menu' && (
+                  <div className='absolute lg:left-0  right-0  mt-2 bg-white shadow-md rounded-md w-[120px]'>
+                    <button
+                      onClick={handleLogout}
+                      className='w-full text-left px-4 py-2 hover:bg-gray-100'
+                    >
+                      Sign out
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <ul className='flex gap-[10px] 2xl:gap-[55px] xl:gap-[55px] lg:gap-[55px] md:gap-[55px] sm:gap-[55px] '>
+                <li className='cursor-pointer'>
+                  <Link to='/Login'>Sign in</Link>
+                </li>
+                <li className='cursor-pointer sm:h-[43px] sm:w-[125px] relative bottom-2 sm:px-[32px] sm:py-[9px] px-[20px] py-[6px] bg-[#1572D3] rounded-[8px]'>
+                  <Link to='/Signup'>Sign up</Link>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
 

@@ -55,6 +55,8 @@ function Loginpage() {
              console.log('✅ Login successful!')
 
         alert("Login successfull!")
+        localStorage.setItem('loggedinuser', JSON.stringify(storedUser))
+        navigate('/')
       }
       else {
         console.log('❌ Invalid credentials:', value)
