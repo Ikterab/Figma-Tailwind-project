@@ -1,0 +1,239 @@
+
+
+[{
+  "img0": "/carsimg/Jaguarcar.svg",
+  "Name": "Jaguar XE L P250",
+  "fname":"Mt",
+  "lname":"kt",
+"email":"egg@gmail.com",
+   "Phone":"190000988999",
+  "brand": "Jaguar ",
+  "model": "XE L P250",
+"message":"Will be shown soon. On working....",
+  "img1": "/Decorate/Star1.svg",
+  "rate": "4.8",
+  "review": "(2436 reviews)",
+
+    "passengerseat":"4 Passangers",
+
+    "transmission":  "Auto",
+    "aircool":  "Air Conditioning",
+    "doors":  "4 Doors"
+    
+  ,
+  "price": "$1800",
+  "day": "/day"
+},
+  {
+    "img0": "/carsimg/Audigari.svg",
+    "Name": "Audi R8",
+    "brand": "Audi",
+    "model": "R8",
+
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.6",
+    "review": "(1936 reviews)",
+    
+      "passengerseat": "2 Passangers",
+
+      "transmission":  "Auto",
+      "aircool": "Air Conditioning",
+      "doors":  "2 Doors",
+    "price": "$2100",
+    "day": "/day"
+  },
+  
+   {
+     "img0": "/carsimg/BMWM3.svg",
+
+     "Name": "BMW M3",
+     "fname": "Mt",
+     "lname": "kt",
+     "email": "egg@gmail.com",
+     "Phone": "190000988999",
+     "message": "Will be shown soon. On working....",
+
+     "brand": "BMW",
+     "model": "M3",
+
+     "img1": "/Decorate/Star1.svg",
+
+     "rate": " 4.5",
+     "review": "(2036 reviews)",
+       "passengerseat": "4 Passangers",
+
+       "transmission": "Auto",
+       "aircool": "Air Conditioning",
+       "doors": "4 Doors",
+     "price": "$1600",
+     "day": "/day"
+   },
+  
+   {
+     "img0": "/carsimg/Lamborginicar.svg",
+     "Name": "Lamborgini Hurrican",
+
+     "brand": "Lamborgini",
+     "model": "Hurrican",
+     "img1": "/Decorate/Star1.svg",
+
+     "rate": " 4.3",
+     "review": "(2236 reviews)",
+       "passengerseat":  "2 Passangers",
+
+       "transmission": "Auto",
+       "aircool":  "Air Conditioning",
+       "doors":  "2 Doors",
+     "price": "$1600",
+     "day": "/day"
+   },
+   {
+     "fname": "Mt",
+     "lname": "kt",
+     "email": "egg@gmail.com",
+     "Phone": "190000988999",
+     "message": "Will be shown soon. On working....",
+
+     "img0": "/carsimg/tula-russia-february-28-2021-600nw-1932915491.webp",
+     "Name": "Toyota Corolla",
+
+     "brand": "Toyota",
+     "model": "Corolla",
+     "img1": "/Decorate/Star1.svg",
+
+     "rate": " 4.3",
+     "review": "(2236 reviews)",
+       "passengerseat": "5 Passangers",
+
+       "transmission": "Auto",
+       "aircool": "Air Conditioning",
+       "doors": "4 Doors",
+     "price": "$1600",
+     "day": "/day"
+   },
+
+   {
+     "fname": "Mt",
+     "lname": "kt",
+     "email": "egg@gmail.com",
+     "Phone": "190000988999",
+     "message": "Will be shown soon. On working....",
+
+     "img0": "/carsimg/Toyotacorollasuv.jpg",
+     "Name": "Toyota Suv",
+
+     "brand": "Toyota",
+     "model": "Suv",
+     "img1": "/Decorate/Star1.svg",
+
+     "rate": " 4.3",
+     "review": "(2236 reviews)",
+       "passengerseat": "5 Passangers",
+
+       "transmission": "Auto",
+       "aircool": "Air Conditioning",
+       "doors": "4 Doors",
+     "price": "$1600",
+     "day": "/day"
+   },
+ {
+   "fname": "Mt",
+   "lname": "kt",
+   "email": "egg@gmail.com",
+   "Phone": "190000988999",
+   "message": "Will be shown soon. On working....",
+
+   "img0": "/carsimg/Toyota rush.png",
+   "Name": "Toyota Suv",
+
+   "brand": "Toyota",
+   "model": "Suv",
+   "img1": "/Decorate/Star1.svg",
+
+   "rate": " 4.3",
+   "review": "(2236 reviews)",
+     "passengerseat": "5 Passangers",
+
+     "transmission": "Auto",
+     "aircool": "Air Conditioning",
+     "doors": "4 Doors",
+   "price": "$1600",
+   "day": "/day"
+ },
+ {
+   "fname": "Mt",
+   "lname": "kt",
+   "email": "egg@gmail.com",
+   "Phone": "190000988999",
+   "message": "Will be shown soon. On working....",
+
+   "img0": "/carsimg/download.jpg",
+   "Name": "Toyota Noah",
+
+   "brand": "Toyota",
+   "model": "Noah",
+   "img1": "/Decorate/Star1.svg",
+
+   "rate": " 4.0",
+   "review": "(2236 reviews)",
+     "passengerseat": "5 Passangers",
+
+     "transmission": "Auto",
+     "aircool": "Air Conditioning",
+     "doors": "4 Doors",
+   "price": "$1600",
+   "day": "/day"
+ },
+
+    {
+      "fname": "Mt",
+      "lname": "kt",
+      "email": "egg@gmail.com",
+      "Phone": "190000988999",
+      "message": "Will be shown soon. On working....",
+
+      "img0": "/carsimg/Axio1.jpg",
+      "Name": "Toyota Axio",
+
+      "brand": "Toyota",
+      "model": "Corolla",
+      "img1": "/Decorate/Star1.svg",
+
+      "rate": " 4.0",
+      "review": "(2236 reviews)",
+        "passengerseat": "5 Passangers",
+
+        "transmission": "Auto",
+        "aircool": "Air Conditioning",
+        "doors": "4 Doors",
+      "price": "$1600",
+      "day": "/day"
+    },
+   {
+     "fname": "Mt",
+     "lname": "kt",
+     "email": "egg@gmail.com",
+     "Phone": "190000988999",
+     "message": "Will be shown soon. On working....",
+
+     "img0": "/carsimg/Axio2.png",
+     "Name": "Toyota Axio 2007",
+
+     "brand": "Toyota",
+     "model": "Corolla",
+     "img1": "/Decorate/Star1.svg",
+
+     "rate": " 4.0",
+     "review": "(2236 reviews)",
+       "passengerseat": "5 Passangers",
+
+       "transmission": "Auto",
+       "aircool": "Air Conditioning",
+       "doors": "4 Doors",
+     "price": "$1600",
+     "day": "/day"
+   }
+
+
+]
