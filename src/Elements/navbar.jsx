@@ -8,14 +8,17 @@ import Frame from '../assets/Frame.png'
 import { Carbrand } from "./companies";
 import { Offers } from "./whochoose";
 import { useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 
 export function Navbar() {
-  const navigate=useNavigate()
+  // const navigate = useNavigate()
+  const {user,setUser}=useContext(SubmissionContext)
   const location = useLocation()
   const home=location.pathname==='/'
   const notHome=location.pathname!=='/'
   const [open, setOpen] = useState(null)
-  const [user,setUser]=useState(null)
+  // const [user,setUser]=useState(null)
   // const whochooseRef = useRef(null)
   // const howitworkRef = useRef(null)
   // const scrollToSection = (ref) => {
@@ -28,17 +31,21 @@ export function Navbar() {
       section.scrollIntoView({ behavior: "smooth" })
       setOpen(false)
     }
-}
-  useEffect(() => {
-    const loggedinUser = JSON.parse(localStorage.getItem('loggedinuser'))
-setUser(loggedinUser)
-  }, [])
-  const handleLogout = () => {
-    localStorage.removeItem('loggedinUser')
-    setUser(null)
-    setOpen(null)
-    navigate('/')
   }
+  const handlelogout = () => {
+    setUser(null)
+  }
+//   useEffect(() => {
+//     const loggedinUser = JSON.parse(localStorage.getItem('loggedinuser'))
+// setUser(loggedinUser)
+//   }, [])
+//   const handleLogout = () => {
+//     localStorage.removeItem('loggedinUser')
+//     setUser(null)
+//     setOpen(null)
+//     navigate('/')
+  //   }
+  
   return (
     <>
       <div className='flex justify-between w-full  font-Poppins text-[#484848]  font-[500] text-[16px] z-10  bg-transparent    xl:px-20    lg:px-3 md:whitespace-nowrap'>
@@ -157,7 +164,7 @@ setUser(loggedinUser)
                 {open === 'menu' && (
                   <div className='absolute lg:left-0  right-0  mt-2 bg-white shadow-md rounded-md w-[120px]'>
                     <button
-                      onClick={handleLogout}
+                      onClick={handlelogout}
                       className='w-full text-left px-4 py-2 hover:bg-gray-100'
                     >
                       Sign out

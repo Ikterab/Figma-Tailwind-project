@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
+import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
+
 import { Link, useNavigate } from 'react-router-dom'
 import carpic from '../assets/photo-1565043666747-69f6646db940.avif'
 import carpic1 from'../assets/pngtree-beautiful-background-for-car-rental-advertising-image_16188411.jpg'
@@ -11,6 +13,8 @@ function Loginpage() {
     email: '',
     password: '',
   })
+
+  const {setUser}=useContext(SubmissionContext)
   // const [error, setError] = useState({ name:false, email:false, password:false,})
   //  const [error, setError] = useState({ name:'', email:'', password:'',})
    const [error, setError] = useState({ })
@@ -23,7 +27,7 @@ function Loginpage() {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    const storedUser = JSON.parse(localStorage.getItem('user'))
+    const storedUser = JSON.parse(localStorage.getItem('signupuser'))
     if (!storedUser)
     {
       alert('No accounts found')
@@ -51,11 +55,12 @@ function Loginpage() {
 
 
     if (Object.keys(newError).length === 0) {
-      if (storedUser && storedUser.email === value.email && storedUser.password === value.password) {
+      if (  storedUser &&  storedUser.name===value.name && storedUser.email === value.email && storedUser.password === value.password) {
              console.log('✅ Login successful!')
 
         alert("Login successfull!")
-        localStorage.setItem('loggedinuser', JSON.stringify(storedUser))
+        // localStorage.setItem('loggedinuser', JSON.stringify(storedUser))
+        setUser(storedUser)
         navigate('/')
       }
       else {

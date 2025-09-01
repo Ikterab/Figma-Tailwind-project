@@ -56,7 +56,7 @@ if (value.password !==value.confirmpassword) {
   setError(newError)  
    
     if (Object.keys(newError).length === 0) {
-      localStorage.setItem('user', JSON.stringify(value))
+      localStorage.setItem('signupuser', JSON.stringify(value))
         console.log('✅ User stored in localStorage:', value)
       alert('Register successfull')
       navigate('/Login')
