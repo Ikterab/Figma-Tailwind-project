@@ -95,7 +95,7 @@ export function Navbar() {
             </>
           )}
         </ul>
-        {open && (
+        {open==='sidebar' && (
           <div
             className='colordrop'
             onClick={() => {

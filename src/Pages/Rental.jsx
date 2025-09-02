@@ -10,33 +10,44 @@ import facebook from '../assets/facebook.svg'
 import instra from '../assets/instagram.svg'
 import Carsdata from '../Reusecode/cardata.json'
 import whitearrow from '../assets/whitearrow.svg'
-import user from '../assets/user.svg'
+import user from '../assets/user.svg'   
 import auto from '../assets/Auto.svg'
 import snow from '../assets/snow.svg'
 import door from '../assets/Door.svg'
 import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 
 
+function RentalPage() {
+  
+  
 const fliter = [
   {
     img: Location,
     type: 'Location',
-    description: 'Search your location',
+    field: 'location',
+    placeholder: 'Search your location',
+    inputType: 'text',
   },
   {
     img: Calander,
     type: 'Pickup date',
-    description: 'Tue 15 Feb, 09:00',
+    field: 'pickupDate',
+    placeholder: 'Select date',
+    inputType: 'date',
   },
   {
     img: Calander,
     type: 'Return date',
-    description: 'Thu 16 Feb, 11:00',
+    field: 'returnDate',
+    placeholder: 'Select return date',
+    inputType: 'date',
   },
 ]
-function RentalPage() {
-     const [cars,setCars]=useState([])
-     const [selection,setSelection]=useState({brand:null, model:[]})
+  
+  
+  
+  const [cars, setCars] = useState([])
+     const [selection,setSelection]=useState({location:'' , pickupDate:'', returnDate:'',   brand:null, model:[],search:false})
   const {submission}=useContext(SubmissionContext)
   
   // const carbrand=['Toyota', 'Honda' , 'BMW', 'Tesla', 'Hyundai']
@@ -60,10 +71,12 @@ function RentalPage() {
  
   // const carbrand = Object.keys(cardata)
   const brandchange = (value) => {
-    setSelection({
-      brand: selection.brand === value ? null : value,
-      model:[]
-})    
+    setSelection((prev)=>({
+...prev,
+      brand: prev?.brand === value ? null : value,
+      model: []
+      
+}))    
   }
   // const getCarsToDisplay = () => {
   //   if (!selection.brand) return rental
@@ -73,17 +86,30 @@ function RentalPage() {
  
   // }
 
-  let displayCars = []
-  if (selection.model.length>0) {
-    displayCars=cars.filter((c)=>selection.model.includes(c.model)) 
-    
-  } else if (selection.brand)
-  {
-    displayCars=cars.filter((c)=>c.brand===selection.brand)
-  } else {
-    displayCars=[...cars]
+
+  
+
+
+  let displayCars=[]
+  if (selection.model.length > 0) {
+    displayCars = cars.filter((c) => selection.model.includes(c.model))
+  } else if (selection.brand) {
+    displayCars = cars.filter((c) => c.brand === selection.brand)
   }
-const brands=[...new Set(cars.map((prev)=>prev.brand))] 
+  else if (selection.location) {
+    displayCars=cars.filter((c)=>c.location.toLowerCase().includes(selection.location.toLowerCase()))
+  }else {
+      displayCars=[...cars]
+    }
+  
+  // let displayCars = cars
+  //   .filter((c) =>selection.brand ? c.brand === selection.brand : true)
+  //   .filter((c) => selection.model.length > 0 ? selection.model.includes(c.model) : true) 
+  // .fiter((c)=>selection.location.length>0 ? selection.location.toLowerCase().includes(c.location):true)
+
+
+
+const brands = [...new Set(cars.map((prev) => prev.brand))] 
 const models=[...new Set(cars.filter((m)=>m.brand===selection.brand).map((c)=>c.model))] 
 
 const modelChange = (modelItem) => {
@@ -95,6 +121,22 @@ const modelChange = (modelItem) => {
   }))
 }
   
+  const searchcars = () =>
+  {
+    const result = cars.filter((car) => {
+      if(!selection.search) return true
+      if (selection.brand && car.brand !== selection.brand) {
+      return false
+      
+      }
+      if(selection.model.length>0 && !selection.model.includes(car.model)) return  false
+    
+    
+      if (selection.location && !car.location.toLowerCase().includes(selection.location.toLowerCase()))  return false
+    return true 
+    })
+  
+  }
   
   
     return (
@@ -140,8 +182,8 @@ const modelChange = (modelItem) => {
             {fliter.map((point, index) => (
               <div
                 key={index}
-                className='Filter'
-                class={`flex w-[150px] 2xl:gap-10.5 2xl:flex-nowrap 2xl:h-[50px] 2xl:w-[300px]  xl:flex-nowrap xl:h-[50px] xl:gap-10.5 xl:w-[200px] lg:flex-nowrap lg:h-[50px]  lg:gap-10.5 lg:w-[250px] md:flex-nowrap md:h-[40px]  md:gap-10.5 md:w-[160px] sm:flex-nowrap  sm:h-[50px]  sm:gap-0  sm:w-[160px] sm:border-2 px-0 sm:border-y-0  sm:border-r-0 ${
+                
+                className={`flex w-[150px] 2xl:gap-10.5 2xl:flex-nowrap 2xl:h-[50px] 2xl:w-[300px]  xl:flex-nowrap xl:h-[50px] xl:gap-10.5 xl:w-[200px] lg:flex-nowrap lg:h-[50px]  lg:gap-10.5 lg:w-[250px] md:flex-nowrap md:h-[40px]  md:gap-10.5 md:w-[160px] sm:flex-nowrap  sm:h-[50px]  sm:gap-0  sm:w-[160px] sm:border-2 px-0 sm:border-y-0  sm:border-r-0 ${
                   index === 0
                     ? 'sm:border-x-0'
                     : 'border-[#ACACAC] 2xl:px-[39.5px] xl:px-[39.5px] lg:px-[39.5px] md:px-[25.5px] '
@@ -159,13 +201,18 @@ const modelChange = (modelItem) => {
                   >
                     {point.type}
                   </h3>
-                  <p class='2xl:text-[14px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[12px] font-normal text-[#B6B6B6]   whitespace-nowrap'>
-                    {point.description}
-                  </p>
+                  <input
+                    type={point.inputType}
+                    placeholder={point.placeholder}
+                    value={selection[point.field]}
+                  onChange={(e)=>(setSelection((prev)=>({...prev,[point.field]:e.target.value})))}
+                  />
                 </div>
               </div>
             ))}
-            <button className='bg-[#1572D3] 2xl:px-12 xl:px-10 lg:px-8 md:px-7 sm:px-6   px-9 py-3 m-auto rounded-[8px] text-[#FFFFFF] font-[Poppins] cursor-pointer '>
+            <button
+              onClick={()=>setSelection((prev)=>({...prev,search: !prev.search}))}
+              className='bg-[#1572D3] 2xl:px-12 xl:px-10 lg:px-8 md:px-7 sm:px-6   px-9 py-3 m-auto rounded-[8px] text-[#FFFFFF] font-[Poppins] cursor-pointer '>
               Search
             </button>
           </div>

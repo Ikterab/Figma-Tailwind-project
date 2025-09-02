@@ -76,7 +76,7 @@ if (value.password !==value.confirmpassword) {
 }
   return (
     <>
-      <div className='mt-15 m-auto  flex flex-col justify-center items-center gap-4  bg-[#e3e8f4]    px-4 py-11 w-md rounded-xl shadow-[0_1px_10px_rgba(15,30,104,0.2)]'>
+      <div className='mt-15 m-auto  flex flex-col justify-center items-center gap-4  bg-[#ffffff]    px-4 py-11 w-md rounded-xl shadow-[0_1px_10px_rgba(15,30,104,0.2)]'>
         <h1 className='text-[24px]'>Register</h1>
         <input
           name='name'

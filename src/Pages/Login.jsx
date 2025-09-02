@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { useState } from "react";
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
+
 import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 
 import { Link, useNavigate } from 'react-router-dom'
@@ -7,12 +9,13 @@ import carpic from '../assets/photo-1565043666747-69f6646db940.avif'
 import carpic1 from'../assets/pngtree-beautiful-background-for-car-rental-advertising-image_16188411.jpg'
 
 function Loginpage() {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   const [value, setValue] = useState({
     name: '',
     email: '',
     password: '',
   })
+  const [show, setShow] = useState({ password: false })
 
   const {setUser}=useContext(SubmissionContext)
   // const [error, setError] = useState({ name:false, email:false, password:false,})
@@ -72,11 +75,12 @@ function Loginpage() {
     setValue({ name: '', email: '', password: '' })
 
   }
-
+  //#FFFDD0
+  // #edf2f8
   return (
     <>
       <div>
-        <div className='mt-15 m-auto  flex flex-col justify-center items-center gap-10  bg-[#edf2f8] px-4 py-20 w-md rounded-xl shadow-[0_1px_10px_rgba(15,30,104,0.2)]'>
+        <div className='mt-15 m-auto  flex flex-col justify-center items-center gap-10  bg-[#ffffff] px-4 py-20 w-md rounded-xl shadow-[0_1px_10px_rgba(15,30,104,0.2)]'>
           <h1 className='text-[24px]'>Log in Here </h1>
           <input
             placeholder='Name*'
@@ -102,26 +106,49 @@ function Loginpage() {
             } `}
           />
           {error.email && <p>{error.email}</p>}
-          <input
-            placeholder='Password*'
-            name='password'
-            value={value.password}
-            onChange={handleChange}
-            className={`w-[350px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
-              error.password
-                ? 'border-red-500'
-                : 'border-[#bfb9cf]  focus:border-[#9984de] '
-            } `}
-          />
+          <div className='relative'>
+            <input
+              placeholder='Password*'
+              name='password'
+              type={show.password ? 'text' : 'password'}
+              value={value.password}
+              onChange={handleChange}
+              className={`w-[350px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
+                error.password
+                  ? 'border-red-500'
+                  : 'border-[#bfb9cf]  focus:border-[#9984de] '
+              } `}
+            />
+            <button
+              type='button'
+              onClick={() =>
+                setShow((prev) => ({ ...prev, password: !prev.password }))
+              }
+              className='absolute right-4 bottom-1/5 text-[#9e9a9a]'
+            >
+              {show.password ? (
+                <AiFillEyeInvisible size={20} />
+              ) : (
+                <AiFillEye size={20} />
+              )}
+            </button>
+          </div>
           {error.password && <p>{error.password}</p>}
           <button
-            type="button"
+            type='button'
             onClick={handleSubmit}
             className='w-[350px] rounded-md h-13 t-[14px] font-semibold bg-[#bfccda]'
           >
             Login
           </button>
-          <p><Link to='/Signup'>I dont have any account</Link></p>
+          <p>
+            
+              I dont have any account{' '}
+              <span className="text-blue-500 border-b-1 hover:text-red-500">
+                <Link to='/Signup'>click here</Link>
+              </span>
+            
+          </p>
         </div>
       </div>
     </>
