@@ -1,30 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import App from '../assets/Frame 2.svg'
 import Car from '../assets/wholecar.png'
 // import Frame from '../assets/Frame.png'
 import Location from '../assets/location.svg'
 import Calander from '../assets/calendar.svg'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 export function Advertisement() {
+   const navigate=useNavigate()
+  const fliter = [
+    {
+      img: Location,
+      type: 'Location',
+      field: 'location',
+      inputType: 'text',
+      placeholder: 'Search your location',
+    },
+    {
+      img: Calander,
+      type: 'Pickup date',
+      field: 'pickupDate',
+      placeholder: 'Select data',
+      inputType: 'date',
+    },
+    {
+      img: Calander,
+      type: 'Return date',
+      field: 'returnDate',
+      placeholder: 'Select data',
+      inputType: 'date',
+    },
+  ]
    
-    const fliter = [
-      {
-        img: Location,
-        type: 'Location',
-        description: 'Search your location',
-      },
-      {
-        img: Calander,
-        type: 'Pickup date',
-        description: 'Tue 15 Feb, 09:00',
-      },
-      {
-        img: Calander,
-        type: 'Return date',
-        description: 'Thu 16 Feb, 11:00',
-      },
-    ]
-   
-   
+  const [filter, setFilter] = useState({
+    location: '',
+    pickupDate: null,
+    returnDate: null,
+  })
+
+  const handleSearch = () => {
+    const query = new URLSearchParams({
+      location: filter.location,
+      pickupDate: filter.pickupDate ? filter.pickupDate.toISOString() : '',
+      returnDate: filter.returnDate ? filter.returnDate.toISOString() : '',
+    }) 
+    navigate(`/Rental?${query}`)
+  }
+
+
     return (
       <>
         <div
@@ -80,7 +104,7 @@ export function Advertisement() {
                 }  
                   xl:w-[200px] xl:gap-10 lg:gap-3`}
               >
-                <img src={point.img} className="" />
+                <img src={point.img} className='' />
                 <div class='relative  m-auto  2xl:right-10 2xl:w-[200px] xl:w-[100px] lg:w-[100px] md:w-[80px] sm:w-[70px] xl:right-8 md:right-9 sm:right-5'>
                   <h3
                     class={` 2xl:text-[16px] xl:text-[16px] lg:text-[16px] md:text-[14px] sm:text-[13px] font-medium text-[#3E3E3E] relative  whitespace-nowrap ${
@@ -91,13 +115,31 @@ export function Advertisement() {
                   >
                     {point.type}
                   </h3>
-                  <p class='2xl:text-[14px] xl:text-[14px] lg:text-[14px] md:text-[14px] sm:text-[12px] font-normal text-[#B6B6B6]   whitespace-nowrap'>
-                    {point.description}
-                  </p>
+                  {point.inputType === 'date' ? (
+                    <DatePicker
+                      selected={filter[point.field]}
+                      onChange={(date) =>
+                        setFilter((prev) => ({ ...prev, [point.field]: date }))
+                      }
+                      placeholderText={point.placeholder}
+                      dateFormat='eee , dd MMM yyyy '
+                      className='text-[#6e6c6c] flex   lg:  text-[13px] '
+                    />
+                  ) : (
+                    <input
+                      type={point.inputType}
+                      placeholder={point.placeholder}
+                        value={filter[point.field]}
+                        onChange={(e)=>setFilter((prev)=>({...prev,[point.field]:e.target.value}))}
+                     
+                      //  onChange={LocationInputDate(point.field,point.inputType)}
+                      className='text-[13px]'
+                    />
+                  )}
                 </div>
               </div>
             ))}
-            <button className='bg-[#1572D3] 2xl:px-12 xl:px-10 lg:px-8 md:px-7 sm:px-6   px-9 py-3 m-auto rounded-[8px] text-[#FFFFFF] font-[Poppins] cursor-pointer '>
+            <button className='bg-[#1572D3] 2xl:px-12 xl:px-10 lg:px-8 md:px-7 sm:px-6   px-9 py-3 m-auto rounded-[8px] text-[#FFFFFF] font-[Poppins] cursor-pointer ' onClick={handleSearch}>
               Search
             </button>
           </div>

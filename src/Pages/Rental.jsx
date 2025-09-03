@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import {useLocation} from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import background from '../assets/2022-12-toyota-corolla-sedan-ascent-sport-hybrid-hero-16x9-1.jpg'
@@ -14,50 +15,66 @@ import user from '../assets/user.svg'
 import auto from '../assets/Auto.svg'
 import snow from '../assets/snow.svg'
 import door from '../assets/Door.svg'
+import   DatePicker  from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
+import { da } from "date-fns/locale";
 
 
 function RentalPage() {
+  const locationHook=useLocation()
   
-  
-const fliter = [
-  {
-    img: Location,
-    type: 'Location',
-    field: 'location',
-    placeholder: 'Search your location',
-    inputType: 'text',
-  },
-  {
-    img: Calander,
-    type: 'Pickup date',
-    field: 'pickupDate',
-    placeholder: 'Select date',
-    inputType: 'date',
-  },
-  {
-    img: Calander,
-    type: 'Return date',
-    field: 'returnDate',
-    placeholder: 'Select return date',
-    inputType: 'date',
-  },
-]
+  const fliter = [
+    {
+      img: Location,
+      type: 'Location',
+      field: 'location',
+      placeholder: 'Search your location',
+      inputType: 'text',
+    },
+    {
+      img: Calander,
+      type: 'Pickup date',
+      field: 'pickupDate',
+      placeholder: 'Select date',
+      inputType: 'date',
+    },
+    {
+      img: Calander,
+      type: 'Return date',
+      field: 'returnDate',
+      placeholder: 'Select return date',
+      inputType: 'date',
+    },
+  ]
   
   
   
   const [cars, setCars] = useState([])
-     const [selection,setSelection]=useState({location:'' , pickupDate:'', returnDate:'',   brand:null, model:[],search:false})
-  const {submission}=useContext(SubmissionContext)
+  const [selection, setSelection] = useState({ location: '', pickupDate:null, returnDate:null, brand: null, model: [], search: false })
+  const { submission } = useContext(SubmissionContext)
   
   // const carbrand=['Toyota', 'Honda' , 'BMW', 'Tesla', 'Hyundai']
   
   
-  useEffect(() => 
-    {
-    setCars([...Carsdata,...submission])
-    },[submission])
+  useEffect(() => {
+    setCars([...Carsdata, ...submission])
+  }, [submission])
   
+  useEffect(() => {
+    const params = new URLSearchParams(locationHook.search)
+    const loc=params.get('location') || ''
+    const pickupdate=params.get('pickupDate') || ''
+    const returndate = params.get('returnDate') || ''
+    setSelection((prev) => ({
+      ...prev,
+      location: loc,
+      pickupDate: pickupdate ? new Date(pickupdate) : null,
+    returnDate: returndate ? new Date(returndate) : null,
+    }))
+  
+},[locationHook.search])
+
   
   // const cardata = {
   //   Toyota: ['Corolla', 'Camry', 'RAV4'],
@@ -71,13 +88,27 @@ const fliter = [
  
   // const carbrand = Object.keys(cardata)
   const brandchange = (value) => {
-    setSelection((prev)=>({
-...prev,
+    setSelection((prev) => ({
+      ...prev,
       brand: prev?.brand === value ? null : value,
       model: []
       
-}))    
+    }))
   }
+
+const modelChange = (modelItem) => {
+  setSelection((prev) => ({
+    ...prev,
+    model: prev.model.includes(modelItem)
+      ? prev.model.filter((m) => m !== modelItem) // remove if selected
+      : [...prev.model, modelItem], // add if not selected
+  }))
+}
+  const brands = [...new Set(cars.map((prev) => prev.brand))] 
+const models=[...new Set(cars.filter((m)=>m.brand===selection.brand).map((c)=>c.model))] 
+
+  
+  
   // const getCarsToDisplay = () => {
   //   if (!selection.brand) return rental
   //   if (!selection.model) { return Object.values(cardata[selection.brand].flat()) }
@@ -90,17 +121,39 @@ const fliter = [
   
 
 
-  let displayCars=[]
-  if (selection.model.length > 0) {
-    displayCars = cars.filter((c) => selection.model.includes(c.model))
-  } else if (selection.brand) {
-    displayCars = cars.filter((c) => c.brand === selection.brand)
-  }
-  else if (selection.location) {
-    displayCars=cars.filter((c)=>c.location.toLowerCase().includes(selection.location.toLowerCase()))
-  }else {
-      displayCars=[...cars]
+  
+  let displayCars = []
+  const lc = (v) => (v ?? '').toString().toLowerCase()
+
+
+   if (selection.search && selection.location) {
+      displayCars = cars.filter((c) =>
+        lc(c?.location).includes(lc(selection.location))
+      )
+     if (selection.brand) {
+       displayCars=displayCars.filter((dc)=>dc?.brand===selection.brand)
+       
+     }
+     else if (selection.model.length > 0)
+     {
+       displayCars=displayCars.filter((dc)=>selection.model.includes(dc?.model))
+     }
+     
     }
+
+
+    else{  if (selection.model.length > 0) {
+    displayCars = cars.filter((c) => selection.model.includes(c?.model))
+
+   } 
+  else if (selection.brand) {
+    displayCars = cars.filter((c) => c?.brand === selection.brand)
+  }   
+  else{
+    displayCars = [...cars]
+  }
+}
+
   
   // let displayCars = cars
   //   .filter((c) =>selection.brand ? c.brand === selection.brand : true)
@@ -109,35 +162,17 @@ const fliter = [
 
 
 
-const brands = [...new Set(cars.map((prev) => prev.brand))] 
-const models=[...new Set(cars.filter((m)=>m.brand===selection.brand).map((c)=>c.model))] 
 
-const modelChange = (modelItem) => {
-  setSelection((prev) => ({
-    ...prev,
-    model: prev.model.includes(modelItem)
-      ? prev.model.filter((m) => m !== modelItem) // remove if selected
-      : [...prev.model, modelItem], // add if not selected
-  }))
-}
+
   
   const searchcars = () =>
-  {
-    const result = cars.filter((car) => {
-      if(!selection.search) return true
-      if (selection.brand && car.brand !== selection.brand) {
-      return false
-      
-      }
-      if(selection.model.length>0 && !selection.model.includes(car.model)) return  false
-    
-    
-      if (selection.location && !car.location.toLowerCase().includes(selection.location.toLowerCase()))  return false
-    return true 
-    })
+  {  
+    setSelection((prev)=>({...prev,search:true}))
+   
   
   }
   
+
   
     return (
       <div>
@@ -195,23 +230,37 @@ const modelChange = (modelItem) => {
                   <h3
                     class={` 2xl:text-[16px] xl:text-[16px] lg:text-[16px] md:text-[14px] sm:text-[13px] font-medium text-[#3E3E3E] relative  whitespace-nowrap ${
                       index === 0
-                        ? 'relative  2xl:right-7 xl:right-4 lg:right-4 md:right-3 sm:right-2'
-                        : 'relative 2xl:right-1 xl:right-1 lg:right-1 md:right-1 sm:right-0'
+                        ? 'relative  2xl:right-10 xl:right-4 lg:right-4 md:right-3 sm:right-2'
+                        : 'relative 2xl:right-8 xl:right-1 lg:right-1 md:right-1 sm:right-0'
                     }`}
                   >
                     {point.type}
                   </h3>
-                  <input
-                    type={point.inputType}
-                    placeholder={point.placeholder}
-                    value={selection[point.field]}
-                  onChange={(e)=>(setSelection((prev)=>({...prev,[point.field]:e.target.value})))}
-                  />
+                  
+                  {point.inputType === 'date' ? (
+                    <DatePicker
+                      selected={selection[point.field]}
+                      onChange={(date)=>setSelection((prev)=>({...prev,[point.field]:date}))}
+                      placeholderText={point.placeholder}
+                      dateFormat='eee , dd MMM yyyy '
+                      className="text-[#6e6c6c] flex   lg:  text-[13px] "
+                    />
+                  
+                  
+                  ): (<input
+                      type={point.inputType}
+                      placeholder={point.placeholder}
+                      value={selection[point.field]}
+                      onChange={(e) => (setSelection((prev) => ({ ...prev, [point.field]: e.target.value })))}
+                    //  onChange={LocationInputDate(point.field,point.inputType)}
+                  
+                  className="text-[13px]"
+                    />)}
                 </div>
               </div>
             ))}
             <button
-              onClick={()=>setSelection((prev)=>({...prev,search: !prev.search}))}
+              onClick={searchcars}
               className='bg-[#1572D3] 2xl:px-12 xl:px-10 lg:px-8 md:px-7 sm:px-6   px-9 py-3 m-auto rounded-[8px] text-[#FFFFFF] font-[Poppins] cursor-pointer '>
               Search
             </button>

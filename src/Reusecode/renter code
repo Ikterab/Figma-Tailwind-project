@@ -66,3 +66,21 @@ Option 2 (better for live use): Keep allUsers in a global state (Context or Redu
 //       ))}
 //   </select>
 // </div> */}
+  // const LocationInputDate =(field,type)=>(e) => {
+   
+  //   if (type === 'text') {
+  //     setSelection((prev) => ({ ...prev, [field]: e.target.value }))
+  //   }
+  //   else if (type === 'Date-local') {
+  //     const d = new Date(e.target.value)
+  //     const formatted = d.toLocaleString('en-us', {
+  //       weekday: "short",
+  //       day: '2-digit',
+  //       month: 'short',
+  //       year: "numeric",
+  //       minute: '2-digit',
+  //       hour: '2-digit'
+  //     })
+  //     setSelection((prev) => ({ ...prev, [field]: formatted }))
+  //   }
+  // }
