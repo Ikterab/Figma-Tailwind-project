@@ -21,14 +21,14 @@ export function Advertisement() {
       img: Calander,
       type: 'Pickup date',
       field: 'pickupDate',
-      placeholder: 'Select data',
+      placeholder: 'Select date',
       inputType: 'date',
     },
     {
       img: Calander,
       type: 'Return date',
       field: 'returnDate',
-      placeholder: 'Select data',
+      placeholder: 'Select date',
       inputType: 'date',
     },
   ]
@@ -109,8 +109,8 @@ export function Advertisement() {
                   <h3
                     class={` 2xl:text-[16px] xl:text-[16px] lg:text-[16px] md:text-[14px] sm:text-[13px] font-medium text-[#3E3E3E] relative  whitespace-nowrap ${
                       index === 0
-                        ? 'relative  2xl:right-7 xl:right-4 lg:right-4 md:right-3 sm:right-2'
-                        : 'relative 2xl:right-1 xl:right-1 lg:right-1 md:right-1 sm:right-0'
+                        ? 'relative  2xl:right-10 xl:right-4 lg:right-4 md:right-3 sm:right-2'
+                        : 'relative 2xl:right-8 xl:right-1 lg:right-1 md:right-1 sm:right-0'
                     }`}
                   >
                     {point.type}

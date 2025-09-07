@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react"
 import { useParams,Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import carData from '../Reusecode/cardata.json'
-
+import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 function Cardetails() {
+  const navigate=useNavigate()
     const { id } = useParams()
     const cars = carData[id]
     if(!cars) return <h2>Car not found</h2>
-    const [zoom, setZoom] = useState(false)
+  const [zoom, setZoom] = useState(false)
+  const {user} =useContext(SubmissionContext)
     // const [position, setPosition] = useState({ x: 0, y: 0 })
     // const [dragging, setDragging] = useState(false)
     // const [scale, setScale] = useState(1)
@@ -37,6 +40,16 @@ function Cardetails() {
     
     // }
 
+  const forswitch = () => {
+    if (user) {
+      navigate('/RentcarAuth',{state:{cars}})
+      
+    }
+    else {
+      navigate('/Login', { state: { from: '/RentcarAuth',cars } })
+    }
+  }
+  
     return (
       <>
         <div className='font-[Poppins]'>
@@ -82,8 +95,12 @@ function Cardetails() {
                 {cars.day}
               </p>
               <p className='text-[17px] text-[#777] '>{cars.message}</p>
-              <button className='text-start w-[150px] text-white bg-[#1572D3] px-8 py-2 rounded-md '>
-                <Link to='/RentcarAuth' state={{cars}}>Rent now</Link>
+              <button
+                onClick={forswitch}
+                className='text-start w-[150px] text-white bg-[#1572D3] px-8 py-2 rounded-md '
+              >
+                {/* <Link to='/RentcarAuth' state={{cars}}>Rent now</Link> */}
+                Rent now
               </button>
               <h3 className='text-[25px] text-[#40386d] mt-5'>
                 Specifictions:

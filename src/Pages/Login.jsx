@@ -3,13 +3,14 @@ import { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 
 import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
-
+import { useLocation } from "react-router-dom";
 import { Link, useNavigate } from 'react-router-dom'
 import carpic from '../assets/photo-1565043666747-69f6646db940.avif'
 import carpic1 from'../assets/pngtree-beautiful-background-for-car-rental-advertising-image_16188411.jpg'
 
 function Loginpage() {
   const navigate = useNavigate()
+  const location=useLocation()
   const [value, setValue] = useState({
     name: '',
     email: '',
@@ -64,7 +65,10 @@ function Loginpage() {
         alert("Login successfull!")
         // localStorage.setItem('loggedinuser', JSON.stringify(storedUser))
         setUser(storedUser)
-        navigate('/')
+        if (location.state?.from) {
+          navigate(location?.state?.from, { state: { cars: location.state.cars } })
+        }
+        else { navigate('/') }
       }
       else {
         console.log('❌ Invalid credentials:', value)
@@ -137,17 +141,15 @@ function Loginpage() {
           <button
             type='button'
             onClick={handleSubmit}
-            className='w-[350px] rounded-md h-13 t-[14px] font-semibold bg-[#bfccda]'
+            className='w-[350px] rounded-md h-13 t-[14px] text-white cursor-pointer font-semibold bg-[#1572D3]'
           >
             Login
           </button>
           <p>
-            
-              I dont have any account{' '}
-              <span className="text-blue-500 border-b-1 hover:text-red-500">
-                <Link to='/Signup'>click here</Link>
-              </span>
-            
+            Don't have any account ?{' '}
+            <span className='text-blue-500 border-b-1 hover:text-red-500'>
+              <Link to='/Signup'>Create account</Link>
+            </span>
           </p>
         </div>
       </div>

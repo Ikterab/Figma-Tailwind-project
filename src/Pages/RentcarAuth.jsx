@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 function Authofrenter(){
     const location = useLocation()
-    const navigate=useNavigate()
+    const navigate=useNavigate()  
     const { cars } = location.state || {}
     // const car=cardata[id]
     const { addSubmission } = useContext(SubmissionContext)
@@ -79,7 +79,7 @@ function Authofrenter(){
                   >
                     <div
                       className={`text-[35px] w-13 h-13  rounded-full font-bold ${
-                        step > s
+                        step >= s
                           ? 'bg-blue-600 transition-all duration-700 '
                           : 'bg-amber-200'
                       }`}

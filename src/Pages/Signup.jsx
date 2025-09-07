@@ -210,13 +210,16 @@ if (value.password !==value.confirmpassword) {
 
         <button
           onClick={handleSubmit}
-          className='w-[350px] rounded-md h-13 t-[14px] font-semibold bg-[#bfccda]'
+          className='w-[350px] rounded-md h-13 text-[17px] text-white font-semibold bg-[#1572D3]'
         >
           {' '}
           Sign Up{' '}
         </button>
-        <p className="text-blue-600 hover:text-red-500">
-          <Link to='/Login'>I already have an account </Link>
+        <p className=''>
+          Already have an account ?{' '}
+          <span className='text-blue-600 hover:text-red-500 border-b-1'>
+            <Link to='/Login'>Sign in</Link>{' '}
+          </span>
         </p>
       </div>
     </>

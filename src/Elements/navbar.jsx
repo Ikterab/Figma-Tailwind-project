@@ -95,7 +95,7 @@ export function Navbar() {
             </>
           )}
         </ul>
-        {open==='sidebar' && (
+        {open === 'sidebar' && (
           <div
             className='colordrop'
             onClick={() => {
@@ -154,18 +154,20 @@ export function Navbar() {
             {user ? (
               <div className='relative'>
                 <div
-           onClick={()=>{setOpen(
-                    open === 'menu' ? null : 'menu'
-                  )}}
+                  onClick={() => {
+                    setOpen(open === 'menu' ? null : 'menu')
+                  }}
                   className={`w-11  h-11 rounded-[50%] bg-blue-500    text-white  text-[23px] border-2 border-red-500     py-1  font-semibold `}
                 >
                   {user.name.charAt(0).toUpperCase()}
                 </div>
                 {open === 'menu' && (
-                  <div className='absolute lg:left-0  right-0  mt-2 bg-white shadow-md rounded-md w-[120px]'>
+                  <div className='absolute lg:left-0  right-0  mt-2 bg-white shadow-md rounded-md w-[150px]'>
+                    <h3>Hello ,{user.name.toUpperCase()}</h3>
+
                     <button
                       onClick={handlelogout}
-                      className='w-full text-left px-4 py-2 hover:bg-gray-100'
+                      className='w-full text-left px-4 py-2 text-red-400 hover:bg-gray-100'
                     >
                       Sign out
                     </button>
@@ -177,9 +179,13 @@ export function Navbar() {
                 <li className='cursor-pointer'>
                   <Link to='/Login'>Sign in</Link>
                 </li>
-                <li className='cursor-pointer sm:h-[43px] sm:w-[125px] relative bottom-2 sm:px-[32px] sm:py-[9px] px-[20px] py-[6px] bg-[#1572D3] rounded-[8px]'>
-                  <Link to='/Signup'>Sign up</Link>
-                </li>
+                <div>
+                  <Link to='/Signup'>
+                    <li className='cursor-pointer sm:h-[43px] sm:w-[125px] relative bottom-2 sm:px-[32px] sm:py-[9px] px-[20px] py-[6px] text-white bg-[#1572D3] rounded-[8px]'>
+                      Sign up
+                    </li>
+                  </Link>
+                </div>{' '}
               </ul>
             )}
           </div>
