@@ -8,7 +8,7 @@ import user from '../assets/user.svg'
 import whitearrow from '../assets/whitearrow.svg'
 
 export function Rentals() {
-  let topcars = Cardata.filter((car,index,self)=>index===self.findIndex(c=>c.id===car.id))
+  let topcars = Cardata.filter((car,index,self)=>index===self.findIndex(c=>c.Id===car.Id))
   return (
     <>
       <div className='flex flex-col items-center font-[Poppins] w-full mt-10'>

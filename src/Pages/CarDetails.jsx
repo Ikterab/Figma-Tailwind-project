@@ -5,12 +5,16 @@ import { useNavigate } from "react-router-dom";
 import carData from '../Reusecode/cardata.json'
 import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 function Cardetails() {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
+  const { submission,user } = useContext(SubmissionContext)
+  
     const { id } = useParams()
-    const cars = carData[id]
+  // const cars = carData[id]
+   let allCars = [...carData, ...submission]
+  const cars=allCars.find((c)=>String(c.id)===id)
     if(!cars) return <h2>Car not found</h2>
   const [zoom, setZoom] = useState(false)
-  const {user} =useContext(SubmissionContext)
+  
     // const [position, setPosition] = useState({ x: 0, y: 0 })
     // const [dragging, setDragging] = useState(false)
     // const [scale, setScale] = useState(1)
@@ -38,7 +42,8 @@ function Cardetails() {
     //     }
     
     
-    // }
+  // }
+ 
 
   const forswitch = () => {
     if (user) {
@@ -59,7 +64,7 @@ function Cardetails() {
             </h1>
           </div>
 
-          <div className='flex flex-wrap  gap-10 2xl:px-20 px-10 mt-6'>
+          <div className='flex flex-wrap lg:flex-nowrap gap-10 2xl:px-20 px-10 mt-6'>
             <div>
               <img
                 src={cars.img0}
