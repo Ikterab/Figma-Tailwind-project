@@ -122,27 +122,48 @@ export function Navbar() {
               {notHome && (
                 <>
                   <li className='cursor-pointer'>
-                    <Link to='/'>Home</Link>
+                    <Link
+                      to='/'
+                      className={`hover:text-blue-400 ${
+                        location.pathname === '/' ? 'text-blue-600' : ''
+                      }`}
+                    >
+                      Home
+                    </Link>
                   </li>
                 </>
               )}
 
-              <li className='cursor-pointer'>
-                <Link to='/Renter'>Become a renter</Link>
+              <li className='cursor-pointer hover:text-blue-400'>
+                <Link
+                  to='/Renter'
+                  className={`${
+                    location.pathname === '/Renter' ? 'text-blue-600' : ''
+                  }`}
+                >
+                  Become a renter
+                </Link>
               </li>
               <li className='cursor-pointer'>
-                <Link to='/Rental'>Rental deals</Link>
+                <Link
+                  to='/Rental'
+                  className={` hover:text-blue-400 ${
+                    location.pathname === '/Rental' ? 'text-blue-600' : ''
+                  }`}
+                >
+                  Rental deals
+                </Link>
               </li>
               {home && (
                 <>
                   <li
-                    className='cursor-pointer'
+                    className='cursor-pointer hover:text-blue-400'
                     onClick={() => scrollToSection('howitwork')}
                   >
                     How it work
                   </li>
                   <li
-                    className='cursor-pointer'
+                    className='cursor-pointer hover:text-blue-400'
                     onClick={() => scrollToSection('whochoose')}
                   >
                     Why choose us
@@ -177,10 +198,22 @@ export function Navbar() {
             ) : (
               <ul className='flex gap-[10px] 2xl:gap-[55px] xl:gap-[55px] lg:gap-[55px] md:gap-[55px] sm:gap-[55px] '>
                 <li className='cursor-pointer'>
-                  <Link to='/Login'>Sign in</Link>
+                  <Link
+                    to='/Login'
+                    className={`hover:text-blue-400 ${
+                      location.pathname === '/Login' ? 'text-blue-600' : ''
+                    }`}
+                  >
+                    Sign in
+                  </Link>
                 </li>
                 <div>
-                  <Link to='/Signup'>
+                  <Link
+                    to='/Signup'
+                    className={`hover:text-blue-400 ${
+                      location.pathname === '/Signup' ? 'text-blue-600' : ''
+                    }`}
+                  >
                     <li className='cursor-pointer sm:h-[43px] sm:w-[125px] relative bottom-2 sm:px-[32px] sm:py-[9px] px-[20px] py-[6px] text-white bg-[#1572D3] rounded-[8px]'>
                       Sign up
                     </li>

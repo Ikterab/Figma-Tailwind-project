@@ -123,7 +123,7 @@ export function Advertisement() {
                       }
                       placeholderText={point.placeholder}
                       dateFormat='eee , dd MMM yyyy '
-                      className='text-[#6e6c6c] flex   lg:  text-[13px] '
+                      className=' flex  text-[13px] '
                     />
                   ) : (
                     <input
