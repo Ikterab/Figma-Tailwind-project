@@ -31,6 +31,24 @@ function Loginpage() {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    const admindata = {
+      name: 'Ton',
+      email: 'ton@gmail.com',
+      password:'admin1234'
+      
+    }
+    if (value.name === admindata.name && value.email===admindata.email &&  value.password===admindata.password) {
+      alert('Welcome to admin pannel')
+      navigate('/Adminpanel')   
+      setValue({ name: '', email: '', password: '' })
+return      
+    }
+
+
+
+
+
     const storedUser = JSON.parse(localStorage.getItem('signupuser'))
     if (!storedUser)
     {

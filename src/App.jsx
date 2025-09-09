@@ -18,6 +18,7 @@ import  Loginpage from './Pages/Login'
 import Signuppage from './Pages/Signup'
 import Cardetails from './Pages/CarDetails'
 import Authofrenter from './Pages/RentcarAuth'
+import { AdminPannel } from './Pages/Adminpanel'
 import './App.css'
 
 function App() {
@@ -31,17 +32,25 @@ function App() {
       </div>  */}
       <Router>
         <div className='min-h-screen flex flex-col '>
-          <Navbar />
           <Routes>
-            <Route path='/' element={<Homepage />} />
-            <Route path='/Renter' element={<Rentarpage />} />
-            <Route path='/Rental' element={<RentalPage />} />
-            <Route path='/Login' element={<Loginpage />} />
-            <Route path='/Signup' element={<Signuppage />} />
-            <Route path='/car/:id' element={<Cardetails />} />
-            <Route path='/RentcarAuth' element={<Authofrenter/> } />
+            <Route path='/Adminpanel' element={<AdminPannel />} />
+            <Route path='/*'
+              element={
+                <>
+                  <Navbar />
+            <Routes>
+              <Route path='/' element={<Homepage />} />
+              <Route path='/Renter' element={<Rentarpage />} />
+              <Route path='/Rental' element={<RentalPage />} />
+              <Route path='/Login' element={<Loginpage />} />
+              <Route path='/Signup' element={<Signuppage />} />
+              <Route path='/car/:id' element={<Cardetails />} />
+              <Route path='/RentcarAuth' element={<Authofrenter />} />
+            </Routes>
+            <Footer />
+             </>
+            }/>
           </Routes>
-          <Footer />
         </div>
       </Router>
     </>

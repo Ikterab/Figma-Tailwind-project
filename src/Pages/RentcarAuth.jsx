@@ -18,7 +18,7 @@ function Authofrenter(){
       phone: '',
       nid: '',
       license: '',
-      reason: '',
+      location: '',
       image: null,
     })
     const handleChange = (e) =>
@@ -49,11 +49,12 @@ function Authofrenter(){
     }
     const handleSubmit=() =>
     {
-        if (!formdata.reason || !formdata.image)
+        if (!formdata.location || !formdata.image)
         {
             alert('Please complete all points')
         }
-      addSubmission({ ...formdata,car:cars })
+      const submissionData = { ...formdata, car: cars }
+      // addSubmission(submissionData)
       
       console.log("Data:", {...formdata, cars })
         alert('Car rent request succeed')
@@ -163,11 +164,11 @@ function Authofrenter(){
           {step === 3 && (
             <div className='flex flex-col justify-center  items-start  px-15  w-md bg-[#f9fafb]  shadow-[0px_2px_10px_rgb(0,0,0,0.1)] rounded-sm  m-auto py-8 gap-4 '>
               <input
-                name='reason'
-                value={formdata.reason}
+                name='location'
+                value={formdata.location}
                 onChange={handleChange}
                 type='text'
-                placeholder='Enter your name'
+                placeholder='Enter your location'
                 className='h-13 border-[#bfb9cf] border-1 rounded-sm w-[350px] px-4 '
               />
               <input
