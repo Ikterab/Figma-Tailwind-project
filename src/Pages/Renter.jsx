@@ -307,9 +307,9 @@ if (value.doors.trim().length === 0) {
                   {value.img0.length > 0 && (
                     <div className='flex gap-1 flex-wrap mt-1 '>
                       {value.img0.map((file, index) => (
-                        <div key={index} className='relative '>
+                        <div key={index} className='relative  flex '>
                           {/* Image Preview */}
-                          <img0
+                          <img
                             src={URL.createObjectURL(file)}
                             alt={`preview ${index + 1}`}
                             className='w-[120px] h-[100px] object-cover rounded shadow'
@@ -371,8 +371,8 @@ if (value.doors.trim().length === 0) {
                   <option value='' disabled>
                     Select transmission
                   </option>
-                  <option value='automatic-transmission'>Auto</option>
-                  <option value='manual-transmission'>Manual</option>
+                  <option value='Auto'>Auto</option>
+                  <option value='Manual'>Manual</option>
                 </select>
               </div>
               <div className='flex sm:flex-row flex-col justify-center gap-7'>

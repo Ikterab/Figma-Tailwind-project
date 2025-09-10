@@ -18,6 +18,7 @@ export function Navbar() {
   const home=location.pathname==='/'
   const notHome=location.pathname!=='/'
   const [open, setOpen] = useState(null)
+  const [menu,setMenu]=useState(false)
   // const [user,setUser]=useState(null)
   // const whochooseRef = useRef(null)
   // const howitworkRef = useRef(null)
@@ -34,6 +35,7 @@ export function Navbar() {
   }
   const handlelogout = () => {
     setUser(null)
+    setMenu(false)
   }
 //   useEffect(() => {
 //     const loggedinUser = JSON.parse(localStorage.getItem('loggedinuser'))
@@ -175,14 +177,17 @@ export function Navbar() {
             {user ? (
               <div className='relative'>
                 <div
+                  // onClick={() => {
+                  //   setOpen(open === 'menu' ? null : 'menu')
+                  // }}
                   onClick={() => {
-                    setOpen(open === 'menu' ? null : 'menu')
+                    setMenu((prev)=>!prev)
                   }}
                   className={`w-11  h-11 rounded-[50%] bg-blue-500    text-white  text-[23px] border-2 border-red-500     py-1  font-semibold `}
                 >
                   {user.name.charAt(0).toUpperCase()}
                 </div>
-                {open === 'menu' && (
+                {menu && (
                   <div className='absolute lg:left-0  right-0  mt-2 bg-white shadow-md rounded-md w-[150px]'>
                     <h3>Hello ,{user.name.toUpperCase()}</h3>
 

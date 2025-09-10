@@ -313,9 +313,10 @@ const models=[...new Set(cars.filter((m)=>m.brand===selection.brand).map((c)=>c.
                     index % 2 !== 0 ? 'py-5.5' : ''
                   }`}
                 />
-                <h3 className='whitespace-nowrap sm:ml-6 ml-15 sm:text-[18px] text-[20px] font-medium'>
-                  {car.Name}
-                </h3>
+              {<h3 className='whitespace-nowrap sm:ml-6 ml-15 sm:text-[18px] text-[20px] font-medium'>
+                  {car.Name || `${car.brand} ${car.model}`  } 
+                </h3>}  
+                
                 <div className='flex gap-3  px-15 sm:px-5 py-1'>
                   <img src={car.img1} />
                   <div className='flex gap-1'>
@@ -369,7 +370,7 @@ const models=[...new Set(cars.filter((m)=>m.brand===selection.brand).map((c)=>c.
                   </div>
                 </div>
                 <button className='flex gap-1 sm:ml-5 m-auto   px-14 bg-[#1572D3] items-center w-[208px] h-[40px] rounded-[8px] text-[14px] text-white cursor-pointer'>
-                  <Link to={`/car/${car?.id}`} className='flex gap-1'>
+                  <Link to={`/car/${car?.id}`   } className='flex gap-1'>
                     Rent now <img src={whitearrow} />
                   </Link>
                 </button>
