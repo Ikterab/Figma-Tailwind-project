@@ -123,23 +123,30 @@ export function Advertisement() {
                       }
                       placeholderText={point.placeholder}
                       dateFormat='eee , dd MMM yyyy '
-                      className=' flex  text-[13px] '
+                      className=' flex  text-[13px] border-0 outline-0 focus:outline-0 '
                     />
                   ) : (
                     <input
                       type={point.inputType}
                       placeholder={point.placeholder}
-                        value={filter[point.field]}
-                        onChange={(e)=>setFilter((prev)=>({...prev,[point.field]:e.target.value}))}
-                     
+                      value={filter[point.field]}
+                      onChange={(e) =>
+                        setFilter((prev) => ({
+                          ...prev,
+                          [point.field]: e.target.value,
+                        }))
+                      }
                       //  onChange={LocationInputDate(point.field,point.inputType)}
-                      className='text-[13px]'
+                      className='text-[13px] border-0 outline-0 focus:outline-0'
                     />
                   )}
                 </div>
               </div>
             ))}
-            <button className='bg-[#1572D3] 2xl:px-12 xl:px-10 lg:px-8 md:px-7 sm:px-6   px-9 py-3 m-auto rounded-[8px] text-[#FFFFFF] font-[Poppins] cursor-pointer ' onClick={handleSearch}>
+            <button
+              className='bg-[#1572D3] 2xl:px-12 xl:px-10 lg:px-8 md:px-7 sm:px-6   px-9 py-3 m-auto rounded-[8px] text-[#FFFFFF] font-[Poppins] cursor-pointer '
+              onClick={handleSearch}
+            >
               Search
             </button>
           </div>

@@ -83,10 +83,20 @@ return
         alert("Login successfull!")
         // localStorage.setItem('loggedinuser', JSON.stringify(storedUser))
         setUser(storedUser)
+        
         if (location.state?.from) {
           navigate(location?.state?.from, { state: { cars: location.state.cars } })
         }
-        else { navigate('/') }
+
+// if (location.state?.submissiondata) {
+//   const pending = location.state.submissiondata
+//   navigate(location.state.from || '/', { state: { autoSubmit: pending } })
+// }
+else {
+  navigate('/')
+}
+       
+      
       }
       else {
         console.log('❌ Invalid credentials:', value)
@@ -102,7 +112,7 @@ return
   return (
     <>
       <div>
-        <div className='mt-15 m-auto  flex flex-col justify-center items-center gap-10  bg-[#ffffff] px-4 py-20 w-md rounded-xl shadow-[0_1px_10px_rgba(15,30,104,0.2)]'>
+        <div className='mt-15 m-auto  flex flex-col justify-center items-center gap-10  bg-[#ffffff] px-5 py-20 w-md rounded-xl shadow-[0_1px_10px_rgba(15,30,104,0.2)]'>
           <h1 className='text-[24px]'>Log in Here </h1>
           <input
             placeholder='Name*'

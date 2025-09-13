@@ -1,14 +1,16 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 import car from "../assets/Carstreetpic.png"
 
 
 function Rentarpage(){
-    const [value, setValue] = useState({ fname: '', lname: '', email: '', phone: '', brand: '', model: '',img0:[], carnumber:'',passengerseat:'', transmission:'',aircool:'' ,doors:'',   message: '' })
+  
+  const navigate=useNavigate()
+  const [value, setValue] = useState({ fname: '', lname: '', email: '', phone: '', brand: '', model: '', img0: [], carnumber: '', passengerseat: '', transmission: '', aircool: '', doors: '', message: '' })
   const [error, setError] = useState({})
-  const { submission, addSubmission } =useContext(SubmissionContext)
+  const { user, submission, addSubmission } =useContext(SubmissionContext)
     
   
   const filetoBase64 = (file) => {
@@ -103,7 +105,15 @@ if (value.doors.trim().length === 0) {
         setError(newerror)
         if (Object.keys(newerror).length=== 0)
         {
-          const img0Base64= await Promise.all(value.img0.map(file=>filetoBase64(file)))
+           
+          // if (!user)
+          // {
+          //   navigate('/Login',{state:{submissiondata:value, from: '/Renter'}})
+          // }
+
+        
+         
+          const img0Base64 = await Promise.all(value.img0.map(file => filetoBase64(file)))
           const submissionJSON = {
             ...value,
             img0: img0Base64,
@@ -339,7 +349,7 @@ if (value.doors.trim().length === 0) {
                   value={value.carnumber}
                   onChange={handlechange}
                   className={`border-[1px] h-[48px]  sm:w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px]  text-gray-700 ${
-                    error.carnumber ? 'border-red-500' : 'border-[#f0f0f0]'
+                    error.carnumber ? 'border-red-500' : 'border-[#f0f0f0] bg-none'
                   }`}
                 />
               </div>
@@ -424,9 +434,9 @@ if (value.doors.trim().length === 0) {
               >
                 Apply
               </button>
-                <button onClick={handleDownload} className='h-[40px] w-[180px] bg-[#2563eb] text-white font-[600] rounded-[5px]'>
+                {/* <button onClick={handleDownload} className='h-[40px] w-[180px] bg-[#2563eb] text-white font-[600] rounded-[5px]'>
             Download All Submissions
-          </button>
+          </button> */}
             </div>
           </div>
         </div>

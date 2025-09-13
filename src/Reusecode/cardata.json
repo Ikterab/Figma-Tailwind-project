@@ -1,5 +1,3 @@
-
-
 [
   {
     "img0": "/carsimg/Jaguarcar.svg",
@@ -312,7 +310,7 @@
     "lname": "kt",
     "email": "egg10@gmail.com",
     "Phone": "190000988999",
-    "location": "Meradia, dhaka",
+    "location": "Meradia,dhaka",
     "message": "With its commanding presence and solidity, the PALISADE holds a strong stance in the premium SUV class. Its dynamic proportions, sculpted details, and distinctive lighting create an unmistakable visual identity.",
 
     "img0": "/carsimg/sONATA.jpg",
@@ -338,7 +336,7 @@
     "lname": "kt",
     "email": "egg10@gmail.com",
     "Phone": "190000988999",
-    "location": "Meradia, dhaka",
+    "location": "Meradia,dhaka",
     "message": "Once you’ve decided to make a change, go for it. The driver’s seat in Tucson has a hassle-free line up of the most essential, cutting edge technologies that lets you stay focused on your mission. Tucson’s roomy interior is also big enough to accommodate all the tools you need to achieve your wins.",
 
     "img0": "/carsimg/Elantra.jpg",
@@ -346,6 +344,33 @@
 
     "brand": "Hyundai",
     "model": "Sedans",
+    "img1": "/Decorate/Star1.svg",
+
+    "rate": " 4.0",
+    "review": "(2236 reviews)",
+    "passengerseat": "5 Passangers",
+
+    "transmission": "Auto",
+    "aircool": "Air Conditioning",
+    "doors": "4 Doors",
+    "price": "$1100",
+    "day": "/day"
+  },
+
+  {
+    "id": "14",
+    "fname": "Mt",
+    "lname": "kt",
+    "email": "eggnessan0@gmail.com",
+    "Phone": "190000988999",
+    "location": "Meradia,dhaka",
+    "message": "Once you’ve decided to make a change, go for it. The driver’s seat in Tucson has a hassle-free line up of the most essential, cutting edge technologies that lets you stay focused on your mission. Tucson’s roomy interior is also big enough to accommodate all the tools you need to achieve your wins.",
+
+    "img0": "/carsimg/nissan-xtrail.jpg",
+    "Name": "X-Trail",
+
+    "brand": "Nissan",
+    "model": "X-Trail",
     "img1": "/Decorate/Star1.svg",
 
     "rate": " 4.0",

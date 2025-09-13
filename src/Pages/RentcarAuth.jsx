@@ -8,7 +8,7 @@ import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 function Authofrenter(){
     const location = useLocation()
     const navigate=useNavigate()  
-    const { cars } = location.state || {}
+    const { cars} = location.state || {}
     // const car=cardata[id]
     const { addSubmission } = useContext(SubmissionContext)
     const [step, setStep] = useState(1)
@@ -20,6 +20,7 @@ function Authofrenter(){
       license: '',
       location: '',
       image: null,
+      description:''
     })
     const handleChange = (e) =>
     {
@@ -49,7 +50,7 @@ function Authofrenter(){
     }
     const handleSubmit=() =>
     {
-        if (!formdata.location || !formdata.image)
+        if (!formdata.location || !formdata.description)
         {
             alert('Please complete all points')
         }
@@ -171,16 +172,23 @@ function Authofrenter(){
                 placeholder='Enter your location'
                 className='h-13 border-[#bfb9cf] border-1 rounded-sm w-[350px] px-4 '
               />
-              <input
+              {/* <input
                 type='file'
                 name='image'
                 onChange={handleChange}
                 placeholder='Enter your email'
                 className='h-13 border-[#bfb9cf] border-1 rounded-sm w-[350px] px-4 '
+              /> */}
+               <input
+                type='text'
+                name='description'
+                value={formdata.description}
+                onChange={handleChange}
+                placeholder='Enter the reason of rent it'
+                className='h-13 border-[#bfb9cf] border-1 rounded-sm w-[350px] px-4 '
               />
-
               <button
-                onClick={handleSubmit}
+                onClick={handleSubmit} 
                 className=' flex  w-[100px] text-start items-start  bg-[#1572D3] py-2 px-7 text-[17px]  font-semibold text-[white] rounded-md '
               >
                 Submit

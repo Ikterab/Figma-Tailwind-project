@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useState, useEffect } from "react"
-import { useParams,Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import carData from '../Reusecode/cardata.json'
 import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
@@ -8,12 +9,17 @@ function Cardetails() {
   const navigate = useNavigate()
   const { submission,user } = useContext(SubmissionContext)
   
-    const { id } = useParams()
+    const { id } = useParams()                                           // get the id from url
   // const cars = carData[id]
    let allCars = [...carData, ...submission]
   const cars=allCars.find((c)=>String(c.id)===id)
     if(!cars) return <h2>Car not found</h2>
   const [zoom, setZoom] = useState(false)
+   const location = useLocation()
+   const params = new URLSearchParams(location.search)
+
+   const pickupDate = params.get('pickupDate')
+   const returnDate = params.get('returnDate')
   
     // const [position, setPosition] = useState({ x: 0, y: 0 })
     // const [dragging, setDragging] = useState(false)

@@ -370,7 +370,7 @@ const models=[...new Set(cars.filter((m)=>m.brand===selection.brand).map((c)=>c.
                   </div>
                 </div>
                 <button className='flex gap-1 sm:ml-5 m-auto   px-14 bg-[#1572D3] items-center w-[208px] h-[40px] rounded-[8px] text-[14px] text-white cursor-pointer'>
-                  <Link to={`/car/${car?.id}`   } className='flex gap-1'>
+                  <Link to={`/car/${car?.id} `} className='flex gap-1'>
                     Rent now <img src={whitearrow} />
                   </Link>
                 </button>
