@@ -8,7 +8,23 @@ import car from "../assets/Carstreetpic.png"
 function Rentarpage(){
   
   const navigate=useNavigate()
-  const [value, setValue] = useState({ fname: '', lname: '', email: '', phone: '', brand: '', model: '', img0: [], carnumber: '', passengerseat: '', transmission: '', aircool: '', doors: '', message: '' })
+  const [value, setValue] = useState({
+    fname: '',
+    lname: '',
+    email: '',
+    phone: '',
+    brand: '',
+    model: '',
+    img0: [],
+    carnumber: '',
+    passengerseat: '',
+    transmission: '',
+    aircool: '',
+    doors: '',
+    date: null,
+    price: '',
+    message: '',
+  })
   const [error, setError] = useState({})
   const { user, submission, addSubmission } =useContext(SubmissionContext)
     
@@ -22,15 +38,6 @@ function Rentarpage(){
     })
     
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   const handlechange = (e) => {
        
@@ -99,6 +106,15 @@ if (value.aircool.trim().length === 0) {
 if (value.doors.trim().length === 0) {
   newerror.doors = 'Please select door number'
 }
+  if (!value.date) {
+  newerror.date = 'Please select a date.'
+}
+
+// Price validation
+if (!value.price || isNaN(value.price) || Number(value.price) <= 0) {
+  newerror.price = 'Please enter a valid price.'
+}
+
 
         if (value.message.trim().length===0)
         { newerror.message = 'Enter something' }
@@ -121,7 +137,7 @@ if (value.doors.trim().length === 0) {
           }
           // setAllSubmission(prev=>[...prev,submissionJSON])
           addSubmission(submissionJSON)
-            console.log('Submitted JSON:',submissionJSON)
+            console.log('Submitted JSON:',submission)
           alert('Your car uploded ')
             setValue({
               fname: '',
@@ -135,7 +151,9 @@ if (value.doors.trim().length === 0) {
               passengerseat: '',
               transmission:'',
               aircool: '',
-              doors:'',
+              doors: '',
+              date: null,
+              price:'',
               message: '',
             })
           
@@ -349,7 +367,9 @@ if (value.doors.trim().length === 0) {
                   value={value.carnumber}
                   onChange={handlechange}
                   className={`border-[1px] h-[48px]  sm:w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px]  text-gray-700 ${
-                    error.carnumber ? 'border-red-500' : 'border-[#f0f0f0] bg-none'
+                    error.carnumber
+                      ? 'border-red-500'
+                      : 'border-[#f0f0f0] bg-none'
                   }`}
                 />
               </div>
@@ -416,6 +436,27 @@ if (value.doors.trim().length === 0) {
                   <option value='4 Doors'>4 Doors</option>
                 </select>
               </div>
+              <div className=' flex sm:flex-row flex-col justify-center gap-7'>
+                <input
+                  type="date"
+                  name='date'
+                  value={value.date}
+                  onChange={handlechange}
+                  placeholder='Date*'
+                  className={`border-[1px] border-solid border-[#f0f0f0]  h-[48px] sm:w-[280px] px-5 placeholder:text-[16px] rounded-[4px] text-gray-700  ${
+                    error.date ? 'border-red-500' : 'border-[#f0f0f0]'
+                  }`}
+                />
+                <input
+                  placeholder='Set your price*'
+                  name='price'
+                  value={value.price}
+                  onChange={handlechange}
+                  className={`border-[1px] h-[48px] sm:w-[280px] border-solid border-[#f0f0f0] px-5 placeholder:text-[16px] rounded-[4px]  text-gray-700 ${
+                    error.price ? 'border-red-500' : 'border-[#f0f0f0]'
+                  }`}
+                />
+              </div>
 
               <input
                 placeholder='Give more details of your car*'
@@ -434,7 +475,7 @@ if (value.doors.trim().length === 0) {
               >
                 Apply
               </button>
-                {/* <button onClick={handleDownload} className='h-[40px] w-[180px] bg-[#2563eb] text-white font-[600] rounded-[5px]'>
+              {/* <button onClick={handleDownload} className='h-[40px] w-[180px] bg-[#2563eb] text-white font-[600] rounded-[5px]'>
             Download All Submissions
           </button> */}
             </div>

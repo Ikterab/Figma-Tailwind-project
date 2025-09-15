@@ -3,15 +3,15 @@ import { TbSquareRoundedLetterJFilled } from 'react-icons/tb'
 import { useNavigate } from 'react-router-dom'
 export const SubmissionContext = createContext()
 
-export function Submissionprovider({ children }) {
+export function SubmissionProvider({ children }) {
   // const navigate =useNavigate()
   const [submission, setAllSubmission] = useState([])
- 
- const loggedinUser=JSON.parse(localStorage.getItem('loggedinuser'))  || null
-  const [user, setUser] = useState(loggedinUser)
   const addSubmission = (newData) => {
     setAllSubmission((prev) => [...prev, newData])
   }
+ const loggedinUser=JSON.parse(localStorage.getItem('loggedinuser'))  || null
+  const [user, setUser] = useState(loggedinUser)
+ 
   useEffect(() => { 
     if (user) {
       localStorage.setItem('loggedinuser', JSON.stringify(user)) 

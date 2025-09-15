@@ -112,14 +112,14 @@ else {
   return (
     <>
       <div>
-        <div className='mt-15 m-auto  flex flex-col justify-center items-center gap-10  bg-[#ffffff] px-5 py-20 w-md rounded-xl shadow-[0_1px_10px_rgba(15,30,104,0.2)]'>
+        <div className='mt-15 m-auto  flex flex-col justify-center items-center gap-10  bg-[#ffffff] py-10 sm:px-5 sm:py-20  sm:w-md w-xs rounded-xl shadow-[0_1px_10px_rgba(15,30,104,0.2)]'>
           <h1 className='text-[24px]'>Log in Here </h1>
           <input
             placeholder='Name*'
             name='name'
             value={value.name}
             onChange={handleChange}
-            className={`w-[350px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
+            className={`sm:w-[350px] w-[250px] h-[48px] rounded-lg border  px-2 focus:ring-0 ${
               error.name
                 ? 'border-red-500'
                 : 'border-[#bfb9cf]  focus:border-[#9984de] '
@@ -131,7 +131,7 @@ else {
             name='email'
             value={value.email}
             onChange={handleChange}
-            className={`w-[350px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
+            className={`sm:w-[350px] w-[250px] h-[48px] rounded-lg border  px-2 focus:ring-0 ${
               error.email
                 ? 'border-red-500'
                 : 'border-[#bfb9cf]  focus:border-[#9984de] '
@@ -145,7 +145,7 @@ else {
               type={show.password ? 'text' : 'password'}
               value={value.password}
               onChange={handleChange}
-              className={`w-[350px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
+              className={`sm:w-[350px] w-[250px] h-[48px] rounded-lg border  px-2 focus:ring-0 ${
                 error.password
                   ? 'border-red-500'
                   : 'border-[#bfb9cf]  focus:border-[#9984de] '
@@ -169,7 +169,7 @@ else {
           <button
             type='button'
             onClick={handleSubmit}
-            className='w-[350px] rounded-md h-13 t-[14px] text-white cursor-pointer font-semibold bg-[#1572D3]'
+            className='sm:w-[350px]  w-[250px] rounded-md h-13 t-[14px] text-white cursor-pointer font-semibold bg-[#1572D3]'
           >
             Login
           </button>

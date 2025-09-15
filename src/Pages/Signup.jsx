@@ -76,13 +76,13 @@ if (value.password !==value.confirmpassword) {
 }
   return (
     <>
-      <div className='mt-15 m-auto  flex flex-col justify-center items-center gap-4  bg-[#ffffff]    px-4 py-11 w-md rounded-xl shadow-[0_1px_10px_rgba(15,30,104,0.2)]'>
+      <div className='mt-15 m-auto  flex flex-col justify-center items-center gap-4  bg-[#ffffff]    px-4 py-11 sm:w-md w-xs rounded-xl shadow-[0_1px_10px_rgba(15,30,104,0.2)]'>
         <h1 className='text-[24px]'>Register</h1>
         <input
           name='name'
           value={value.name}
           onChange={handleChange}
-          className={`w-[350px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
+          className={`sm:w-[350px] w-[250px] h-[48px] rounded-lg border  px-2 focus:ring-0 ${
             error.name
               ? 'border-red-500'
               : 'border-[#bfb9cf]  focus:border-[#9984de] '
@@ -96,7 +96,7 @@ if (value.password !==value.confirmpassword) {
           name='email'
           value={value.email}
           onChange={handleChange}
-          className={`w-[350px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
+          className={`sm:w-[350px] w-[250px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
             error.email
               ? 'border-red-500'
               : 'border-[#bfb9cf]  focus:border-[#9984de] '
@@ -111,7 +111,7 @@ if (value.password !==value.confirmpassword) {
           name='phone'
           value={value.phone}
           onChange={handleChange}
-          className={`w-[350px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
+          className={`sm:w-[350px] w-[250px] h-[48px] rounded-lg border  px-2 focus:ring-0 ${
             error.phone
               ? 'border-red-500'
               : 'border-[#bfb9cf]  focus:border-[#9984de] '
@@ -128,7 +128,7 @@ if (value.password !==value.confirmpassword) {
           name='address'
           value={value.address}
           onChange={handleChange}
-          className={`w-[350px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
+          className={`sm:w-[350px] w-[250px] h-[48px] rounded-lg border  px-2 focus:ring-0 ${
             error.address
               ? 'border-red-500'
               : 'border-[#bfb9cf]  focus:border-[#9984de] '
@@ -145,7 +145,7 @@ if (value.password !==value.confirmpassword) {
             name='password'
             value={value.password}
             onChange={handleChange}
-            className={`w-[350px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
+            className={`sm:w-[350px] w-[250px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
               error.password
                 ? 'border-red-500'
                 : 'border-[#bfb9cf]  focus:border-[#9984de] '
@@ -176,7 +176,7 @@ if (value.password !==value.confirmpassword) {
             name='confirmpassword'
             value={value.confirmpassword}
             onChange={handleChange}
-            className={`w-[350px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
+            className={`sm:w-[350px] w-[250px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
               error.confirmpassword
                 ? 'border-red-500'
                 : 'border-[#bfb9cf]  focus:border-[#9984de] '
@@ -210,7 +210,7 @@ if (value.password !==value.confirmpassword) {
 
         <button
           onClick={handleSubmit}
-          className='w-[350px] rounded-md h-13 text-[17px] text-white font-semibold bg-[#1572D3]'
+          className='sm:w-[350px] w-[250px] rounded-md h-13 text-[17px] text-white font-semibold bg-[#1572D3]'
         >
           {' '}
           Sign Up{' '}
@@ -231,7 +231,7 @@ export default Signuppage
 
 
 
-//  className={`w-[350px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
+//  className={`sm:w-[350px]  h-[48px] rounded-lg border  px-2 focus:ring-0 ${
 //               error.name
 //                 ? 'border-red-500'
 //                 : 'border-[#bfb9cf]  focus:border-[#9984de] '
