@@ -11,16 +11,23 @@ import { SubmissionContext } from "../contextapiorserverapi/SubmissionContext";
 
 
 export function AdminPannel() {
-const { submission } =useContext(SubmissionContext)
+const { submission, updateSubmission } = useContext(SubmissionContext)
   console.log(submission)
   const navigate = useNavigate()
   const [open, setOpen] = useState(null)
-  const [owner, setOwner] = useState()
+
   
-  useEffect(() => {
-    setOwner([...submission])
-  },[submission])
+//   const acceptOwnercars = (index) => {
+//     const carupdated = [...submission]
+//     carupdated[index].status = 'accepted'
+//     addSubmission(carupdated)
+//     localStorage.setItem('submission',JSON.stringify(carupdated))
+// }
   
+  const acceptOwnercars = (index) => {
+    updateSubmission(index,{status:'accepted'})
+  }
+
     const logout = () => {
   navigate('/Login')
 }
@@ -96,8 +103,8 @@ const { submission } =useContext(SubmissionContext)
             </div>
           )}
           {open === 'owner' && (
-            <div>
-              <ul className='flex py-8 px-10 gap-10 text-[20px] font-'>
+            <div className="">
+              <ul className='flex py-8 px-10 gap-25 text-[20px] font-'>
                 <li>No.</li>
                 <li>Name</li>
                 <li>Date</li>
@@ -108,24 +115,27 @@ const { submission } =useContext(SubmissionContext)
                 <li>Email</li>
                 <li>Price</li>
               </ul>
-              {owner.map((renter, index) => (
-                <ul
-                  key={index}
-                  className='flex py-8 px-10 gap-10 text-[20px] '
-                >
-                  <li>{index + 1}</li>
-                  <li>
-                    {renter?.fname}
-                    {renter?.lname}
-                  </li>
-                  <li>{renter?.date}</li>
-                  <li>{renter?.location}</li>
-                  <li>{renter?.brand}</li>
-                  <li>{renter?.model}</li>
-                  <li>{renter.phone}</li>
-                  <li>{renter?.email}</li>
-                  <li>{renter?.price}</li>
-                </ul>
+              {submission.map((renter, index) => (
+                <div className="flex">
+                  <ul
+                    key={index}
+                    className='flex py-8 px-10 gap-20 text-[20px] '
+                  >
+                    <li>{index + 1}</li>
+                    <li>
+                      {renter?.fname}
+                      {renter?.lname}
+                    </li>
+                    <li>{renter?.date}</li>
+                    <li>{renter?.location}</li>
+                    <li>{renter?.brand}</li>
+                    <li>{renter?.model}</li>
+                    <li>{renter.phone}</li>
+                    <li>{renter?.email}</li>
+                    <li>{renter?.price}</li>
+                  </ul>
+                  <button  className="cursor-pointer" onClick={() => acceptOwnercars(index)}>Accept</button>
+                </div>
               ))}
             </div>
           )}

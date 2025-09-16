@@ -5,10 +5,47 @@ export const SubmissionContext = createContext()
 
 export function SubmissionProvider({ children }) {
   // const navigate =useNavigate()
-  const [submission, setAllSubmission] = useState([])
+  // const [submission, setAllSubmission] = useState([])
+  // const addSubmission = (newData) => {
+  //   setAllSubmission((prev) => [...prev, newData])
+  // }
+ 
+
+
+  const storedowneresdata = JSON.parse(localStorage.getItem('submission')) || []
+  const [submission, setAllSubmission] = useState(storedowneresdata)
+  
+  
   const addSubmission = (newData) => {
-    setAllSubmission((prev) => [...prev, newData])
+    setAllSubmission((prev) => {
+      
+      const totalsubmission = [...prev, newData]
+      try {
+        localStorage.setItem('submission',JSON.stringify(totalsubmission))
+      } catch(error) {
+        console.error('Failed to save submission to localstorage',error)
+}
+return totalsubmission
+    })
+    
   }
+
+  const updateSubmission = (index, updatedData) => {
+    setAllSubmission((prev) => {
+      const newSubmission=[...prev]
+      newSubmission[index] = { ...newSubmission[index], ...updatedData }
+       try {
+         localStorage.setItem('submission', JSON.stringify(newSubmission))
+       } catch (error) {
+         console.error('Failed to update submission in localStorage', error)
+       }
+       return newSubmissions
+    })
+  
+}
+
+
+
  const loggedinUser=JSON.parse(localStorage.getItem('loggedinuser'))  || null
   const [user, setUser] = useState(loggedinUser)
  
@@ -26,7 +63,7 @@ export function SubmissionProvider({ children }) {
   
   
   return (
-    <SubmissionContext.Provider value={{ submission, addSubmission, user , setUser }}>
+    <SubmissionContext.Provider value={{ submission, addSubmission, updateSubmission, user , setUser }}>
       {children}
     </SubmissionContext.Provider>
   )

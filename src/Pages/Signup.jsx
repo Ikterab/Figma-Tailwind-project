@@ -82,6 +82,7 @@ if (value.password !==value.confirmpassword) {
           name='name'
           value={value.name}
           onChange={handleChange}
+          autoComplete="off"
           className={`sm:w-[350px] w-[250px] h-[48px] rounded-lg border  px-2 focus:ring-0 ${
             error.name
               ? 'border-red-500'

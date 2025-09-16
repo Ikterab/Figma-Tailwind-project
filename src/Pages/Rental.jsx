@@ -54,11 +54,12 @@ function RentalPage() {
   const [selection, setSelection] = useState({ location: '', pickupDate:null, returnDate:null, brand: null, model: [], search: false })
   const { submission } = useContext(SubmissionContext)
   
+  const acceptRental=submission.filter(s=>s.status==='accepted')
   // const carbrand=['Toyota', 'Honda' , 'BMW', 'Tesla', 'Hyundai']
   
   
   useEffect(() => {
-    setCars([...Carsdata, ...submission])
+    setCars([...Carsdata, ...acceptRental])
   }, [submission])
   
   useEffect(() => {
@@ -365,7 +366,7 @@ const models=[...new Set(cars.filter((m)=>m.brand===selection.brand).map((c)=>c.
                     Price
                   </h3>
                   <div className='flex text-[14px]'>
-                    <h3 className='text-[16px] font-medium'>{car.price}</h3>
+                    <h3 className='text-[16px] font-medium'>{car.price}{' '}Taka</h3>
                     <h3 className='text-[#595959] text-[14px]'>{car.day}</h3>
                   </div>
                 </div>
